@@ -1,17 +1,16 @@
 //
-//  AutobotTableViewCell.swift
+//  DecepticonTableViewCell.swift
 //  TransformersWars
 //
-//  Created by Claudio Emilio Villanueva Albornoz on 15-05-21.
+//  Created by Claudio Emilio Villanueva Albornoz on 16-05-21.
 //
 
 import UIKit
 
-class AutobotTableViewCell: UITableViewCell {
+class DecepticonTableViewCell: UITableViewCell {
 
     // MARK: - Widgets
 
-    @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var strengthProgressView: UIProgressView!
     @IBOutlet weak var intelligenceProgressView: UIProgressView!
@@ -37,14 +36,14 @@ class AutobotTableViewCell: UITableViewCell {
     func setupUI() {
         self.leftViewWidthConstraint.constant = UIScreen.main.bounds.width / 2
         self.nameLabel.font = .optimus(size: 22)
-        self.strengthProgressView.tintColor = AppConstants.Color.redAutobot
-        self.intelligenceProgressView.tintColor = AppConstants.Color.redAutobot
-        self.speedProgressView.tintColor = AppConstants.Color.redAutobot
-        self.enduranceProgressView.tintColor = AppConstants.Color.redAutobot
-        self.rankProgressView.tintColor = AppConstants.Color.redAutobot
-        self.courageProgressView.tintColor = AppConstants.Color.redAutobot
-        self.firepowerProgressView.tintColor = AppConstants.Color.redAutobot
-        self.skillProgressView.tintColor = AppConstants.Color.redAutobot
+        self.strengthProgressView.tintColor = AppConstants.Color.purpleDecepticon
+        self.intelligenceProgressView.tintColor = AppConstants.Color.purpleDecepticon
+        self.speedProgressView.tintColor = AppConstants.Color.purpleDecepticon
+        self.enduranceProgressView.tintColor = AppConstants.Color.purpleDecepticon
+        self.rankProgressView.tintColor = AppConstants.Color.purpleDecepticon
+        self.courageProgressView.tintColor = AppConstants.Color.purpleDecepticon
+        self.firepowerProgressView.tintColor = AppConstants.Color.purpleDecepticon
+        self.skillProgressView.tintColor = AppConstants.Color.purpleDecepticon
     }
 
     /// Setup cell data

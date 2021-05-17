@@ -13,14 +13,14 @@ class AppStorage {
     static func storeApiToken(token: String) {
         print("[AppStorage] storeToken() token:\(token)")
         let userDefaults = UserDefaults.standard
-         userDefaults.set(token, forKey: AppConstants.Networking.apiToken)
+         userDefaults.set(token, forKey: AppConstants.StorageKey.apiToken)
     }
 
     /// Gets the API token from local storage
     /// - Returns: A string containing the API key
     static func getApiToken() -> String {
         return UserDefaults.standard.string(
-            forKey: AppConstants.Networking.apiToken
+            forKey: AppConstants.StorageKey.apiToken
         ) ?? AppConstants.empty
     }
 }

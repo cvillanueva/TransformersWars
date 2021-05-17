@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		04C69EF313C3B68EF6C0F4A6 /* Pods_TransformersWars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A124E40457A75FAAAA2156 /* Pods_TransformersWars.framework */; };
 		4DBEF28732CC92B88F7D7558 /* Pods_TransformersWarsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1AD0644B1056708FAFF559E /* Pods_TransformersWarsTests.framework */; };
+		F02175B3265168320067F966 /* DecepticonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02175B1265168320067F966 /* DecepticonTableViewCell.swift */; };
+		F02175B4265168320067F966 /* DecepticonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02175B2265168320067F966 /* DecepticonTableViewCell.xib */; };
+		F02175B62651A9220067F966 /* RequestApiToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02175B52651A9220067F966 /* RequestApiToken.swift */; };
+		F02175B82651CDF00067F966 /* RequestTransformersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02175B72651CDF00067F966 /* RequestTransformersList.swift */; };
+		F02175BC2651DEFA0067F966 /* NewTransformerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02175BA2651DEFA0067F966 /* NewTransformerViewController.swift */; };
+		F02175BD2651DEFA0067F966 /* NewTransformerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02175BB2651DEFA0067F966 /* NewTransformerViewController.xib */; };
+		F02175BF2651F4230067F966 /* NewTransformerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02175BE2651F4230067F966 /* NewTransformerViewModel.swift */; };
 		F05D34132650266B00020B02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D34122650266B00020B02 /* AppDelegate.swift */; };
 		F05D34152650266B00020B02 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D34142650266B00020B02 /* SceneDelegate.swift */; };
 		F05D341C2650266C00020B02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05D341B2650266C00020B02 /* Assets.xcassets */; };
@@ -53,6 +60,13 @@
 		ADE7C131D3D71C6FBC082339 /* Pods-TransformersWars.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransformersWars.release.xcconfig"; path = "Target Support Files/Pods-TransformersWars/Pods-TransformersWars.release.xcconfig"; sourceTree = "<group>"; };
 		BC27A0E27CA6150D0B931A42 /* Pods-TransformersWars.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransformersWars.debug.xcconfig"; path = "Target Support Files/Pods-TransformersWars/Pods-TransformersWars.debug.xcconfig"; sourceTree = "<group>"; };
 		D1AD0644B1056708FAFF559E /* Pods_TransformersWarsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransformersWarsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F02175B1265168320067F966 /* DecepticonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecepticonTableViewCell.swift; sourceTree = "<group>"; };
+		F02175B2265168320067F966 /* DecepticonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DecepticonTableViewCell.xib; sourceTree = "<group>"; };
+		F02175B52651A9220067F966 /* RequestApiToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestApiToken.swift; sourceTree = "<group>"; };
+		F02175B72651CDF00067F966 /* RequestTransformersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTransformersList.swift; sourceTree = "<group>"; };
+		F02175BA2651DEFA0067F966 /* NewTransformerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransformerViewController.swift; sourceTree = "<group>"; };
+		F02175BB2651DEFA0067F966 /* NewTransformerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewTransformerViewController.xib; sourceTree = "<group>"; };
+		F02175BE2651F4230067F966 /* NewTransformerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransformerViewModel.swift; sourceTree = "<group>"; };
 		F05D340F2650266B00020B02 /* TransformersWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransformersWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F05D34122650266B00020B02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F05D34142650266B00020B02 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +140,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F02175B92651DED00067F966 /* NewTransformer */ = {
+			isa = PBXGroup;
+			children = (
+				F02175BA2651DEFA0067F966 /* NewTransformerViewController.swift */,
+				F02175BB2651DEFA0067F966 /* NewTransformerViewController.xib */,
+				F02175BE2651F4230067F966 /* NewTransformerViewModel.swift */,
+			);
+			path = NewTransformer;
+			sourceTree = "<group>";
+		};
 		F05D34062650266B00020B02 = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +209,7 @@
 		F05D34432650296400020B02 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				F02175B92651DED00067F966 /* NewTransformer */,
 				F05D344E2650314400020B02 /* TransformersList */,
 			);
 			path = Scenes;
@@ -234,6 +259,8 @@
 			children = (
 				F05D345C26506CF500020B02 /* AutobotTableViewCell.swift */,
 				F05D345D26506CF500020B02 /* AutobotTableViewCell.xib */,
+				F02175B1265168320067F966 /* DecepticonTableViewCell.swift */,
+				F02175B2265168320067F966 /* DecepticonTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -242,6 +269,8 @@
 			isa = PBXGroup;
 			children = (
 				F05D346126507E4700020B02 /* TransformersResponse.swift */,
+				F02175B52651A9220067F966 /* RequestApiToken.swift */,
+				F02175B72651CDF00067F966 /* RequestTransformersList.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -356,9 +385,11 @@
 			files = (
 				F05D34472650297900020B02 /* TransformersListViewController.xib in Resources */,
 				F05D34542650378500020B02 /* Optimus-Bold.otf in Resources */,
+				F02175BD2651DEFA0067F966 /* NewTransformerViewController.xib in Resources */,
 				F05D341F2650266C00020B02 /* LaunchScreen.storyboard in Resources */,
 				F05D34552650378500020B02 /* OptimusHollow.otf in Resources */,
 				F05D341C2650266C00020B02 /* Assets.xcassets in Resources */,
+				F02175B4265168320067F966 /* DecepticonTableViewCell.xib in Resources */,
 				F05D345F26506CF500020B02 /* AutobotTableViewCell.xib in Resources */,
 				F05D34562650378500020B02 /* Optimus.otf in Resources */,
 			);
@@ -485,14 +516,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				F05D34462650297900020B02 /* TransformersListViewController.swift in Sources */,
+				F02175BF2651F4230067F966 /* NewTransformerViewModel.swift in Sources */,
 				F05D346226507E4700020B02 /* TransformersResponse.swift in Sources */,
 				F05D34132650266B00020B02 /* AppDelegate.swift in Sources */,
 				F05D344D2650313F00020B02 /* TransformersListViewModel.swift in Sources */,
 				F05D345A2650518D00020B02 /* AppStorage.swift in Sources */,
 				F05D345826503B4E00020B02 /* AppExtensions.swift in Sources */,
+				F02175BC2651DEFA0067F966 /* NewTransformerViewController.swift in Sources */,
 				F05D34152650266B00020B02 /* SceneDelegate.swift in Sources */,
+				F02175B82651CDF00067F966 /* RequestTransformersList.swift in Sources */,
 				F05D345E26506CF500020B02 /* AutobotTableViewCell.swift in Sources */,
+				F02175B62651A9220067F966 /* RequestApiToken.swift in Sources */,
 				F05D344A26502B8500020B02 /* AppConstants.swift in Sources */,
+				F02175B3265168320067F966 /* DecepticonTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

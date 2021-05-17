@@ -8,11 +8,11 @@
 import Foundation
 
 // MARK: - GET Transformers list
-struct TransformersList {
+struct TransformersList: Codable {
     let transformers: [Transformer]
 }
 
-struct Transformer {
+struct Transformer: Codable {
     let identifier: String
     let name: String
     let strength: Int

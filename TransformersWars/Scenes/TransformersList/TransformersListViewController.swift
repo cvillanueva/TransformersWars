@@ -19,6 +19,7 @@ class TransformersListViewController: UIViewController {
     @IBOutlet weak var fightButton: UIButton!
     @IBOutlet weak var bottomStackView: UIStackView!
     @IBOutlet weak var transformersTableView: UITableView!
+    @IBOutlet weak var safeZoneView: UIView!
 
     // MARK: - Class variables
     var viewModel: TransformersListViewModel
@@ -43,7 +44,8 @@ class TransformersListViewController: UIViewController {
         self.setupTableView()
         self.setupBinding()
 
-        self.viewModel.fillTableWithMockData()
+        self.viewModel.checkApiToken()
+//        self.viewModel.fillTableWithMockData()
     }
 
     // MARK: - UI
@@ -56,12 +58,71 @@ class TransformersListViewController: UIViewController {
             NSAttributedString.Key.foregroundColor: UIColor.white
         ]
 
+        self.navigationController?.navigationBar.barStyle = .black
         self.navigationController?.navigationBar.barTintColor = .red
         self.bottomStackView.backgroundColor = .red
+        self.safeZoneView.backgroundColor = .red
 
         self.addButton.titleLabel?.font = .optimus(size: 24)
         self.fightButton.titleLabel?.font = .optimus(size: 24)
+
+        let backItem = UIBarButtonItem()
+        backItem.title = AppConstants.TransformersListViewController.backButtonTitle
+        backItem.tintColor = .white
+        backItem.setTitleTextAttributes(
+            [NSAttributedString.Key.font: UIFont.optimus(size: 20)],
+            for: .normal
+        )
+        navigationItem.backBarButtonItem = backItem
     }
+
+    func showApiTokenRequestErrorAlert(message: String) {
+        print("[TransformersListViewController] showApiTokenRequestErrorAlert()")
+        let refreshAlert = UIAlertController(
+            title: AppConstants.TransformersListViewController.apiTokenFailedDialogTitle,
+            message: message,
+            preferredStyle: UIAlertController.Style.alert
+        )
+
+        refreshAlert.addAction(
+            UIAlertAction(
+                title: AppConstants.buttonOk,
+                style: .default,
+                handler: { (_: UIAlertAction!) in
+                    self.viewModel.getAPiToken()
+                }
+            )
+        )
+
+        present(refreshAlert, animated: true, completion: nil)
+    }
+
+    func showTransformersListRequestErrorAlert(message: String) {
+        print("[TransformersListViewController] showTransformersListRequestErrorAlert()")
+        let refreshAlert = UIAlertController(
+            title: AppConstants.TransformersListViewController.apiTokenFailedDialogTitle,
+            message: message,
+            preferredStyle: UIAlertController.Style.alert
+        )
+
+        refreshAlert.addAction(
+            UIAlertAction(
+                title: AppConstants.buttonOk,
+                style: .default,
+                handler: { (_: UIAlertAction!) in
+                    self.viewModel.getTransformersList()
+                }
+            )
+        )
+
+        present(refreshAlert, animated: true, completion: nil)
+    }
+
+    @IBAction func addButtonTapped(_ sender: Any) {
+        let newTransformerViewController = NewTransformerViewController()
+        self.navigationController?.pushViewController(newTransformerViewController, animated: true)
+    }
+
 }
 
 extension TransformersListViewController {
@@ -84,16 +145,34 @@ extension TransformersListViewController {
 
     /// To listen changes in the viewmodel
     func setupBinding() {
-        viewModel.output.newsItems
+        self.viewModel.output.transformersItems
             .drive(transformersTableView.rx.items(dataSource: dataSource()))
             .disposed(by: disposeBag)
+
+        self.viewModel.output.gotRequestError
+            .drive(
+                onNext: { [weak self] errorType in
+                    switch errorType {
+                    case .apiTokenNetworkIsNotReachable:
+                        self?.showApiTokenRequestErrorAlert(message: errorType.rawValue)
+                    case .apiTokenServerError:
+                        self?.showApiTokenRequestErrorAlert(message: errorType.rawValue)
+                    case .transformersListNetworkIsNotReachable:
+                        self?.showTransformersListRequestErrorAlert(message: errorType.rawValue)
+                    case .transformersListServerError:
+                        self?.showTransformersListRequestErrorAlert(message: errorType.rawValue)
+                    case .transformersListParsingError:
+                        self?.showTransformersListRequestErrorAlert(message: errorType.rawValue)
+                    }
+                }
+            ).disposed(by: disposeBag)
     }
 
-    func dataSource() -> RxTableViewSectionedReloadDataSource<NewsListSectionModel> {
-        let dataSource = RxTableViewSectionedReloadDataSource<NewsListSectionModel>(
+    func dataSource() -> RxTableViewSectionedReloadDataSource<TransformersListSectionModel> {
+        let dataSource = RxTableViewSectionedReloadDataSource<TransformersListSectionModel>(
             configureCell: { dataSource, tableView, indexPath, _ -> UITableViewCell in
                 switch dataSource[indexPath] {
-                case .newsItem(model: let model):
+                case .autobotItem(model: let model):
 //                    self.loadingAlert.dismiss(animated: true)
 //                    self.fetchingData = false
 
@@ -101,6 +180,18 @@ extension TransformersListViewController {
                         withIdentifier: AppConstants.TransformersListViewController.autobotCellName,
                         for: indexPath
                     ) as! AutobotTableViewCell
+
+                    cell.setup(model: model)
+
+                    return cell
+                case .decepticonItem(model: let model):
+//                    self.loadingAlert.dismiss(animated: true)
+//                    self.fetchingData = false
+
+                    let cell: DecepticonTableViewCell = tableView.dequeueReusableCell(
+                        withIdentifier: AppConstants.TransformersListViewController.decepticonCellName,
+                        for: indexPath
+                    ) as! DecepticonTableViewCell
 
                     cell.setup(model: model)
 

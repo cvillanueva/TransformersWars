@@ -19,6 +19,7 @@
                 <outlet property="addButton" destination="U51-MT-IdR" id="Rpm-mO-fxM"/>
                 <outlet property="bottomStackView" destination="8ew-dd-17Y" id="cMh-LP-2PJ"/>
                 <outlet property="fightButton" destination="hh9-dv-bK0" id="tuX-MI-Gld"/>
+                <outlet property="safeZoneView" destination="br0-Ce-eSZ" id="V9I-yw-pcK"/>
                 <outlet property="transformersTableView" destination="SWi-2q-3az" id="C0w-Dg-22N"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -40,6 +41,9 @@
                             <state key="normal" title="Add +">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="addButtonTapped:" destination="-1" eventType="touchUpInside" id="TR9-rS-yha"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hh9-dv-bK0">
                             <rect key="frame" x="207" y="0.0" width="207" height="56"/>
@@ -58,10 +62,15 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="762"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="br0-Ce-eSZ">
+                    <rect key="frame" x="0.0" y="862" width="414" height="34"/>
+                    <color key="backgroundColor" systemColor="systemRedColor"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="br0-Ce-eSZ" secondAttribute="trailing" id="EZV-xm-bue"/>
                 <constraint firstItem="SWi-2q-3az" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Fdm-dN-ffF"/>
                 <constraint firstItem="8ew-dd-17Y" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="JQ0-Qb-98M"/>
                 <constraint firstItem="SWi-2q-3az" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="LUF-gs-I1S"/>
@@ -69,6 +78,9 @@
                 <constraint firstItem="8ew-dd-17Y" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="QL9-VK-TMu"/>
                 <constraint firstItem="SWi-2q-3az" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="RW1-Ae-mKg"/>
                 <constraint firstItem="8ew-dd-17Y" firstAttribute="top" secondItem="SWi-2q-3az" secondAttribute="bottom" id="gSd-Xe-Ih7"/>
+                <constraint firstItem="br0-Ce-eSZ" firstAttribute="top" secondItem="8ew-dd-17Y" secondAttribute="bottom" id="rzo-Uw-QAJ"/>
+                <constraint firstItem="br0-Ce-eSZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="z9F-gj-md2"/>
+                <constraint firstAttribute="bottom" secondItem="br0-Ce-eSZ" secondAttribute="bottom" id="zd4-oR-iAD"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="39.508928571428569"/>
         </view>

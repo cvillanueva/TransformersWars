@@ -11,6 +11,7 @@ import RxDataSources
 import RxSwift
 
 // swiftlint:disable identifier_name
+// swiftlint:disable function_body_length
 
 class TransformersListViewModel {
 
@@ -18,46 +19,45 @@ class TransformersListViewModel {
     struct Input {}
 
     struct Output {
-        let newsItems: Driver<[NewsListSectionModel]>
-        let gotApiRequestError: Driver<AppConstants.ApiRequestError>
+        let transformersItems: Driver<[TransformersListSectionModel]>
+        let gotRequestError: Driver<AppConstants.ApiRequestError>
     }
 
     let input: Input
     let output: Output
 
     // MARK: - Subjects
-    let _newsItems = BehaviorRelay<[NewsListSectionModel]>(value: [])
-    let _gotApiRequestError = PublishSubject<AppConstants.ApiRequestError>()
+    let _transformersItems = BehaviorRelay<[TransformersListSectionModel]>(value: [])
+    let _gotRequestError = PublishSubject<AppConstants.ApiRequestError>()
 
     // MARK: - Sections
 
-    var newsItems: [NewsListSectionModel] {
+    var transformersItems: [TransformersListSectionModel] {
         get {
-            _newsItems.value
+            _transformersItems.value
         }
         set {
-            _newsItems.accept(newValue)
+            _transformersItems.accept(newValue)
         }
     }
 
     // MARK: - Class variables
     let disposeBag = DisposeBag()
     var gotRequestError = false
-    var newsList: [Transformer] = []
+    var transformersList: [Transformer] = []
 
     init() {
         print("[TransformersListViewModel] init()")
         input = Input()
         output = Output(
-            newsItems: _newsItems.asDriver(),
-            gotApiRequestError: _gotApiRequestError.asDriver(onErrorJustReturn: .networkIsNotReachable)
+            transformersItems: _transformersItems.asDriver(),
+            gotRequestError: _gotRequestError.asDriver(onErrorJustReturn: .apiTokenNetworkIsNotReachable)
         )
-        newsItems = [.newsListSection(title: AppConstants.empty, items: [])]
+        transformersItems = [.transformersListSection(title: AppConstants.empty, items: [])]
     }
 
     func fillTableWithMockData() {
-        print("[TransformersListViewModel] fillTableWithMockData()")
-        let transformer = Transformer(
+        let autobot = Transformer(
             identifier: "no_id",
             name: "Inferno",
             strength: 5,
@@ -72,64 +72,162 @@ class TransformersListViewModel {
             teamIcon: "no_icon"
         )
 
-        var section: NewsListSectionModel = .newsListSection(title: AppConstants.empty, items: [])
-        let transformersList: [Transformer] = [transformer, transformer, transformer, transformer]
-        var currentNewsItems: [NewsItem] = []
+        let decepticon = Transformer(
+            identifier: "no_id",
+            name: "Starscream",
+            strength: 5,
+            intelligence: 6,
+            speed: 7,
+            endurance: 8,
+            rank: 9,
+            courage: 10,
+            firepower: 9,
+            skill: 8,
+            team: "D",
+            teamIcon: "no_icon"
+        )
 
+        let transformersList: [Transformer] = [autobot, decepticon, autobot, autobot, decepticon, decepticon]
+        showList(transformersList: transformersList)
+    }
+
+    func showList(transformersList: [Transformer]) {
+        print("[TransformersListViewModel] showList()")
+        var section: TransformersListSectionModel = .transformersListSection(title: AppConstants.empty, items: [])
+        var currentTransformersItems: [TransformerItem] = []
         var oddCounter = 0
+
         for transformer in transformersList {
-            currentNewsItems.append(
-                .newsItem(
-                    model: AutobotTableViewCellModel(
-                        name: transformer.name,
-                        strength: transformer.strength,
-                        intelligence: transformer.intelligence,
-                        speed: transformer.speed,
-                        endurance: transformer.endurance,
-                        rank: transformer.rank,
-                        courage: transformer.courage,
-                        firepower: transformer.firepower,
-                        skill: transformer.skill,
-                        team: transformer.team,
-                        oddCell: oddCounter % 2 == 0
+            if transformer.team == "A" {
+            currentTransformersItems.append(
+                    .autobotItem(
+                        model: TransformerTableViewCellModel(
+                            name: transformer.name,
+                            strength: transformer.strength,
+                            intelligence: transformer.intelligence,
+                            speed: transformer.speed,
+                            endurance: transformer.endurance,
+                            rank: transformer.rank,
+                            courage: transformer.courage,
+                            firepower: transformer.firepower,
+                            skill: transformer.skill,
+                            team: transformer.team,
+                            oddCell: oddCounter % 2 == 0
+                        )
                     )
                 )
-            )
+            } else {
+                currentTransformersItems.append(
+                        .decepticonItem(
+                            model: TransformerTableViewCellModel(
+                                name: transformer.name,
+                                strength: transformer.strength,
+                                intelligence: transformer.intelligence,
+                                speed: transformer.speed,
+                                endurance: transformer.endurance,
+                                rank: transformer.rank,
+                                courage: transformer.courage,
+                                firepower: transformer.firepower,
+                                skill: transformer.skill,
+                                team: transformer.team,
+                                oddCell: oddCounter % 2 == 0
+                            )
+                        )
+                    )
+            }
             oddCounter += 1
         }
 
-        section = .newsListSection(
+        section = .transformersListSection(
             title: AppConstants.empty,
-            items: currentNewsItems
+            items: currentTransformersItems
         )
 
-        newsItems[0] = section
+        transformersItems[0] = section
     }
 }
 
 // MARK: - Section Models
-enum NewsListSectionModel {
-    case newsListSection(title: String, items: [NewsItem])
+enum TransformersListSectionModel {
+    case transformersListSection(title: String, items: [TransformerItem])
 }
 
-enum NewsItem {
-    case newsItem(model: AutobotTableViewCellModel)
+enum TransformerItem {
+    case autobotItem(model: TransformerTableViewCellModel)
+    case decepticonItem(model: TransformerTableViewCellModel)
 }
 
-extension NewsListSectionModel: SectionModelType {
-    typealias Item = NewsItem
+extension TransformersListSectionModel: SectionModelType {
+    typealias Item = TransformerItem
 
     var items: [Item] {
         switch self {
-        case .newsListSection(title: _, items: let items):
+        case .transformersListSection(title: _, items: let items):
             return items
         }
     }
 
-    init(original: NewsListSectionModel, items: [Item]) {
+    init(original: TransformersListSectionModel, items: [Item]) {
         switch original {
-        case let .newsListSection(title: title, items: _):
-            self = .newsListSection(title: title, items: items)
+        case let .transformersListSection(title: title, items: _):
+            self = .transformersListSection(title: title, items: items)
         }
+    }
+}
+
+/// Autobot info model
+public struct TransformerTableViewCellModel {
+    let name: String
+    let strength: Int
+    let intelligence: Int
+    let speed: Int
+    let endurance: Int
+    let rank: Int
+    let courage: Int
+    let firepower: Int
+    let skill: Int
+    let team: String
+    let oddCell: Bool
+}
+
+extension TransformersListViewModel: RequestApiTokenProtocol {
+
+    // MARK: API token requesting logic
+
+    func checkApiToken() {
+        let apiToken = AppStorage.getApiToken()
+        if apiToken != AppConstants.empty {
+            print("[TransformersListViewModel] checkApiToken() apiToken:\(apiToken)")
+            self.getTransformersList(apiToken)
+        } else {
+            self.getAPiToken()
+        }
+
+    }
+
+    func getAPiToken() {
+        _ = RequestApiToken(delegate: self)
+    }
+
+    func receivedToken(token: String) {
+        AppStorage.storeApiToken(token: token)
+        print("[TransformersListViewModel] receivedToken() calling transformers list")
+        self.checkApiToken()
+    }
+
+    func serverErrorHappened(errorType: AppConstants.ApiRequestError) {
+        print("[TransformersListViewModel] serverErrorHappened()")
+        self._gotRequestError.onNext(errorType)
+    }
+}
+
+extension TransformersListViewModel: RequestTransformersListProtocol {
+
+    func getTransformersList(_ apiToken: String = AppStorage.getApiToken()) {
+        _ = RequestTransformersList(delegate: self, apiToken: apiToken)
+    }
+
+    func receivedData(transformersList: [Transformer]) {
+        showList(transformersList: transformersList)
     }
 }

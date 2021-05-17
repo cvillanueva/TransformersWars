@@ -35,7 +35,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="NKW-vP-Z33"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="22"/>
+                        <fontDescription key="fontDescription" name="Optimus" family="Optimus" pointSize="22"/>
                         <color key="textColor" systemColor="systemRedColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -45,13 +45,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OsB-lN-KWh">
                                 <rect key="frame" x="0.0" y="0.0" width="161" height="78"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strength" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyg-fK-Vgn">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strength" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyg-fK-Vgn">
                                         <rect key="frame" x="10" y="10" width="60" height="12"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="12" id="6sT-Uv-a3Q"/>
                                             <constraint firstAttribute="width" constant="60" id="v9B-W9-Eqk"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Optimus" family="Optimus" pointSize="10"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -60,14 +60,15 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="4" id="RQE-M6-hwD"/>
                                         </constraints>
+                                        <color key="progressTintColor" systemColor="systemRedColor"/>
                                     </progressView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intelligence" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJc-mw-Z2i">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intelligence" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJc-mw-Z2i">
                                         <rect key="frame" x="10" y="25" width="60" height="12"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="Pub-J1-i71"/>
                                             <constraint firstAttribute="height" constant="12" id="nsR-YD-LKP"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Optimus" family="Optimus" pointSize="10"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -76,14 +77,15 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="4" id="8oQ-oF-0SS"/>
                                         </constraints>
+                                        <color key="progressTintColor" systemColor="systemRedColor"/>
                                     </progressView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60B-Sv-gC0">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60B-Sv-gC0">
                                         <rect key="frame" x="10" y="40" width="60" height="12"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="12" id="MCN-y0-SOz"/>
                                             <constraint firstAttribute="width" constant="60" id="w4x-Rw-Kml"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Optimus" family="Optimus" pointSize="10"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -92,14 +94,15 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="4" id="6jK-Bc-CaA"/>
                                         </constraints>
+                                        <color key="progressTintColor" systemColor="systemRedColor"/>
                                     </progressView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Endurance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v46-Tu-C62">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Endurance" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v46-Tu-C62">
                                         <rect key="frame" x="10" y="55" width="60" height="12"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="NYH-oh-bEe"/>
                                             <constraint firstAttribute="height" constant="12" id="zvZ-0u-dwr"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Optimus" family="Optimus" pointSize="10"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -108,6 +111,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="4" id="ZcG-MD-iUw"/>
                                         </constraints>
+                                        <color key="progressTintColor" systemColor="systemRedColor"/>
                                     </progressView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -138,13 +142,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AMQ-7M-Vkt">
                                 <rect key="frame" x="161" y="0.0" width="159" height="78"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FcR-Ji-Ix2">
-                                        <rect key="frame" x="10" y="10" width="60" height="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rank" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FcR-Ji-Ix2">
+                                        <rect key="frame" x="5" y="10" width="60" height="12"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="12" id="4DY-6J-DkC"/>
                                             <constraint firstAttribute="width" constant="60" id="Edh-l6-vq7"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Optimus" family="Optimus" pointSize="10"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -153,14 +157,15 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="4" id="c9l-qM-fUm"/>
                                         </constraints>
+                                        <color key="progressTintColor" systemColor="systemRedColor"/>
                                     </progressView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Courage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0Y-fx-o8R">
-                                        <rect key="frame" x="10" y="25" width="60" height="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Courage" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0Y-fx-o8R">
+                                        <rect key="frame" x="5" y="25" width="60" height="12"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="12" id="GIy-Mj-dfz"/>
                                             <constraint firstAttribute="width" constant="60" id="p7I-Nj-Gqj"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Optimus" family="Optimus" pointSize="10"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -169,14 +174,15 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="4" id="VGe-8o-dhd"/>
                                         </constraints>
+                                        <color key="progressTintColor" systemColor="systemPinkColor"/>
                                     </progressView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firepower" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ApW-5o-fmP">
-                                        <rect key="frame" x="10" y="40" width="60" height="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firepower" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ApW-5o-fmP">
+                                        <rect key="frame" x="5" y="40" width="60" height="12"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="u7M-un-uBg"/>
                                             <constraint firstAttribute="height" constant="12" id="wvu-oF-lNp"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Optimus" family="Optimus" pointSize="10"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -185,15 +191,16 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="4" id="OU4-tI-dUP"/>
                                         </constraints>
+                                        <color key="progressTintColor" systemColor="systemRedColor"/>
                                     </progressView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skill" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="npu-Ae-zNQ">
-                                        <rect key="frame" x="10" y="55" width="60" height="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skill" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="npu-Ae-zNQ">
+                                        <rect key="frame" x="5" y="55" width="60" height="12"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="12" id="Iwn-yB-N4I"/>
                                             <constraint firstAttribute="width" constant="60" id="pIt-K2-Is4"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Optimus" family="Optimus" pointSize="10"/>
-                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="p6D-ey-PRM">
@@ -201,29 +208,30 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="4" id="NWv-Iy-nMT"/>
                                         </constraints>
+                                        <color key="progressTintColor" systemColor="systemRedColor"/>
                                     </progressView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="npu-Ae-zNQ" firstAttribute="top" secondItem="ApW-5o-fmP" secondAttribute="bottom" constant="3" id="5kg-cF-6aB"/>
-                                    <constraint firstItem="npu-Ae-zNQ" firstAttribute="leading" secondItem="AMQ-7M-Vkt" secondAttribute="leading" constant="10" id="8T0-qy-D1Q"/>
+                                    <constraint firstItem="npu-Ae-zNQ" firstAttribute="leading" secondItem="AMQ-7M-Vkt" secondAttribute="leading" constant="5" id="8T0-qy-D1Q"/>
                                     <constraint firstItem="FcR-Ji-Ix2" firstAttribute="top" secondItem="AMQ-7M-Vkt" secondAttribute="top" constant="10" id="AAl-bw-fYl"/>
-                                    <constraint firstItem="p6D-ey-PRM" firstAttribute="leading" secondItem="npu-Ae-zNQ" secondAttribute="trailing" id="EBM-7o-Z8o"/>
+                                    <constraint firstItem="p6D-ey-PRM" firstAttribute="leading" secondItem="npu-Ae-zNQ" secondAttribute="trailing" constant="5" id="EBM-7o-Z8o"/>
                                     <constraint firstItem="L0Y-fx-o8R" firstAttribute="top" secondItem="FcR-Ji-Ix2" secondAttribute="bottom" constant="3" id="IGU-vk-wae"/>
                                     <constraint firstItem="UHq-PV-KWq" firstAttribute="top" secondItem="AMQ-7M-Vkt" secondAttribute="top" constant="14" id="Kkf-CC-7Fi"/>
                                     <constraint firstItem="p6D-ey-PRM" firstAttribute="top" secondItem="A9m-cx-RMu" secondAttribute="bottom" constant="11" id="Kme-Rb-wNK"/>
-                                    <constraint firstItem="ApW-5o-fmP" firstAttribute="leading" secondItem="AMQ-7M-Vkt" secondAttribute="leading" constant="10" id="LvU-pv-oml"/>
-                                    <constraint firstItem="r0n-gB-Jjz" firstAttribute="leading" secondItem="L0Y-fx-o8R" secondAttribute="trailing" id="MEy-Pr-RBT"/>
+                                    <constraint firstItem="ApW-5o-fmP" firstAttribute="leading" secondItem="AMQ-7M-Vkt" secondAttribute="leading" constant="5" id="LvU-pv-oml"/>
+                                    <constraint firstItem="r0n-gB-Jjz" firstAttribute="leading" secondItem="L0Y-fx-o8R" secondAttribute="trailing" constant="5" id="MEy-Pr-RBT"/>
                                     <constraint firstAttribute="trailing" secondItem="p6D-ey-PRM" secondAttribute="trailing" constant="12" id="Vxo-7c-0eT"/>
-                                    <constraint firstItem="FcR-Ji-Ix2" firstAttribute="leading" secondItem="AMQ-7M-Vkt" secondAttribute="leading" constant="10" id="ZHK-jq-81F"/>
-                                    <constraint firstItem="UHq-PV-KWq" firstAttribute="leading" secondItem="FcR-Ji-Ix2" secondAttribute="trailing" id="ZcI-Jw-N5x"/>
+                                    <constraint firstItem="FcR-Ji-Ix2" firstAttribute="leading" secondItem="AMQ-7M-Vkt" secondAttribute="leading" constant="5" id="ZHK-jq-81F"/>
+                                    <constraint firstItem="UHq-PV-KWq" firstAttribute="leading" secondItem="FcR-Ji-Ix2" secondAttribute="trailing" constant="5" id="ZcI-Jw-N5x"/>
                                     <constraint firstAttribute="trailing" secondItem="UHq-PV-KWq" secondAttribute="trailing" constant="12" id="dIq-hT-cTh"/>
                                     <constraint firstItem="r0n-gB-Jjz" firstAttribute="top" secondItem="UHq-PV-KWq" secondAttribute="bottom" constant="11" id="hxr-XX-jTX"/>
                                     <constraint firstAttribute="trailing" secondItem="A9m-cx-RMu" secondAttribute="trailing" constant="12" id="iTy-5L-Mzz"/>
                                     <constraint firstItem="ApW-5o-fmP" firstAttribute="top" secondItem="L0Y-fx-o8R" secondAttribute="bottom" constant="3" id="mJj-YW-GJi"/>
-                                    <constraint firstItem="A9m-cx-RMu" firstAttribute="leading" secondItem="ApW-5o-fmP" secondAttribute="trailing" id="nQr-XB-hWL"/>
+                                    <constraint firstItem="A9m-cx-RMu" firstAttribute="leading" secondItem="ApW-5o-fmP" secondAttribute="trailing" constant="5" id="nQr-XB-hWL"/>
                                     <constraint firstItem="A9m-cx-RMu" firstAttribute="top" secondItem="r0n-gB-Jjz" secondAttribute="bottom" constant="11" id="rjH-Py-O5K"/>
-                                    <constraint firstItem="L0Y-fx-o8R" firstAttribute="leading" secondItem="AMQ-7M-Vkt" secondAttribute="leading" constant="10" id="wBI-KO-3eu"/>
+                                    <constraint firstItem="L0Y-fx-o8R" firstAttribute="leading" secondItem="AMQ-7M-Vkt" secondAttribute="leading" constant="5" id="wBI-KO-3eu"/>
                                     <constraint firstAttribute="trailing" secondItem="r0n-gB-Jjz" secondAttribute="trailing" constant="12" id="x2D-yq-gYI"/>
                                 </constraints>
                             </view>
@@ -253,24 +261,16 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="courageLabel" destination="L0Y-fx-o8R" id="vRN-qL-pdH"/>
                 <outlet property="courageProgressView" destination="r0n-gB-Jjz" id="Xxv-Qj-5Zx"/>
-                <outlet property="enduranceLabel" destination="v46-Tu-C62" id="eP4-5h-AiN"/>
                 <outlet property="enduranceProgressView" destination="oBM-rR-p0O" id="tZe-Gc-hj7"/>
-                <outlet property="firepowerLabel" destination="ApW-5o-fmP" id="4x8-FA-KDa"/>
                 <outlet property="firepowerProgressView" destination="A9m-cx-RMu" id="DOc-Sc-O4b"/>
                 <outlet property="iconImageView" destination="Ahc-gB-cgj" id="oFT-Xc-gNt"/>
-                <outlet property="intelligenceLabel" destination="HJc-mw-Z2i" id="CeU-fP-aBk"/>
                 <outlet property="intelligenceProgressView" destination="BI5-Yb-mzn" id="MdG-eM-HHE"/>
                 <outlet property="leftViewWidthConstraint" destination="IjS-DK-D0X" id="OIm-Kk-GyY"/>
                 <outlet property="nameLabel" destination="LxD-uG-Sb6" id="1DI-aU-Qxi"/>
-                <outlet property="rankLabel" destination="FcR-Ji-Ix2" id="3EH-D1-8uR"/>
                 <outlet property="rankProgressView" destination="UHq-PV-KWq" id="q9H-aD-hbB"/>
-                <outlet property="skillLabel" destination="npu-Ae-zNQ" id="IRQ-Nh-iDS"/>
                 <outlet property="skillProgressView" destination="p6D-ey-PRM" id="HeJ-J7-dlN"/>
-                <outlet property="speedLabel" destination="60B-Sv-gC0" id="mbS-n5-sC9"/>
                 <outlet property="speedProgressView" destination="BIF-CS-rqj" id="UgK-5r-Ol0"/>
-                <outlet property="strengthLabel" destination="jyg-fK-Vgn" id="sX9-kB-YQF"/>
                 <outlet property="strengthProgressView" destination="24Z-vU-tLa" id="yKe-bb-N89"/>
             </connections>
             <point key="canvasLocation" x="160.86956521739131" y="67.299107142857139"/>
@@ -278,6 +278,9 @@
     </objects>
     <resources>
         <image name="autobot" width="500" height="475"/>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
