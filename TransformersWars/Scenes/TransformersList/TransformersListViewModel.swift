@@ -11,7 +11,7 @@ import RxDataSources
 import RxSwift
 
 // swiftlint:disable identifier_name
-// swiftlint:disable function_body_length
+// swiftlint: function_body_length
 
 class TransformersListViewModel {
 
@@ -98,42 +98,14 @@ class TransformersListViewModel {
         var oddCounter = 0
 
         for transformer in transformersList {
+            var model = transformer
+            print("[TransformersListViewModel] showList() model.identifier:\(model.identifier)")
+            model.oddCell = oddCounter % 2 == 0
+
             if transformer.team == "A" {
-            currentTransformersItems.append(
-                    .autobotItem(
-                        model: TransformerTableViewCellModel(
-                            name: transformer.name,
-                            strength: transformer.strength,
-                            intelligence: transformer.intelligence,
-                            speed: transformer.speed,
-                            endurance: transformer.endurance,
-                            rank: transformer.rank,
-                            courage: transformer.courage,
-                            firepower: transformer.firepower,
-                            skill: transformer.skill,
-                            team: transformer.team,
-                            oddCell: oddCounter % 2 == 0
-                        )
-                    )
-                )
+                currentTransformersItems.append(.autobotItem(model: model))
             } else {
-                currentTransformersItems.append(
-                        .decepticonItem(
-                            model: TransformerTableViewCellModel(
-                                name: transformer.name,
-                                strength: transformer.strength,
-                                intelligence: transformer.intelligence,
-                                speed: transformer.speed,
-                                endurance: transformer.endurance,
-                                rank: transformer.rank,
-                                courage: transformer.courage,
-                                firepower: transformer.firepower,
-                                skill: transformer.skill,
-                                team: transformer.team,
-                                oddCell: oddCounter % 2 == 0
-                            )
-                        )
-                    )
+                currentTransformersItems.append(.decepticonItem(model: model))
             }
             oddCounter += 1
         }
@@ -153,8 +125,8 @@ enum TransformersListSectionModel {
 }
 
 enum TransformerItem {
-    case autobotItem(model: TransformerTableViewCellModel)
-    case decepticonItem(model: TransformerTableViewCellModel)
+    case autobotItem(model: Transformer)
+    case decepticonItem(model: Transformer)
 }
 
 extension TransformersListSectionModel: SectionModelType {
@@ -173,21 +145,6 @@ extension TransformersListSectionModel: SectionModelType {
             self = .transformersListSection(title: title, items: items)
         }
     }
-}
-
-/// Autobot info model
-public struct TransformerTableViewCellModel {
-    let name: String
-    let strength: Int
-    let intelligence: Int
-    let speed: Int
-    let endurance: Int
-    let rank: Int
-    let courage: Int
-    let firepower: Int
-    let skill: Int
-    let team: String
-    let oddCell: Bool
 }
 
 extension TransformersListViewModel: RequestApiTokenProtocol {

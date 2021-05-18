@@ -9,17 +9,18 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewTransformerViewController" customModule="TransformersWars" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransformerEditorViewController" customModule="TransformersWars" customModuleProvider="target">
             <connections>
+                <outlet property="actionButton" destination="PRf-Uc-ieu" id="kiy-6o-Tli"/>
                 <outlet property="courageSlider" destination="MZV-PE-sCM" id="TbZ-az-uWc"/>
                 <outlet property="courageValueLabel" destination="jxE-8L-S63" id="qLI-dV-nWB"/>
-                <outlet property="createButton" destination="PRf-Uc-ieu" id="kiy-6o-Tli"/>
                 <outlet property="enduranceSlider" destination="Bdm-Tb-9KU" id="3JP-4I-bti"/>
                 <outlet property="enduranceValueLabel" destination="kZx-qv-c7h" id="OR7-2L-vke"/>
                 <outlet property="firepowerSlider" destination="h2U-M2-jxE" id="ElG-pZ-XON"/>
                 <outlet property="firepowerValueLabel" destination="nJ3-KD-8tj" id="Rky-yW-9ME"/>
                 <outlet property="intelligenceSlider" destination="fQB-9M-lMr" id="rbu-V2-fcu"/>
                 <outlet property="intelligenceValueLabel" destination="5kH-Xh-jIy" id="ZjL-bL-N9e"/>
+                <outlet property="nameTextField" destination="wWL-9X-UbD" id="LbC-iO-llM"/>
                 <outlet property="rankSlider" destination="BY6-S8-0fl" id="S90-IC-nmh"/>
                 <outlet property="rankValueLabel" destination="dFj-bv-jD5" id="b3C-nD-iyN"/>
                 <outlet property="skillSlider" destination="Ici-Br-p9C" id="n9O-XV-9dP"/>
@@ -42,10 +43,10 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="MaS-QW-Ced"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textField>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="NtO-CF-NAy">
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="NtO-CF-NAy">
                     <rect key="frame" x="130" y="124" width="229" height="31"/>
                     <color key="tintColor" systemColor="systemRedColor"/>
                 </slider>
@@ -67,7 +68,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="2It-TO-pUn">
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="2It-TO-pUn">
                     <rect key="frame" x="130" y="226" width="229" height="31"/>
                     <color key="tintColor" systemColor="systemRedColor"/>
                 </slider>
@@ -80,7 +81,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="Bdm-Tb-9KU">
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="Bdm-Tb-9KU">
                     <rect key="frame" x="130" y="277" width="229" height="31"/>
                     <color key="tintColor" systemColor="systemRedColor"/>
                 </slider>
@@ -93,7 +94,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="BY6-S8-0fl">
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="BY6-S8-0fl">
                     <rect key="frame" x="130" y="328" width="229" height="31"/>
                     <color key="tintColor" systemColor="systemRedColor"/>
                 </slider>
@@ -106,7 +107,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="MZV-PE-sCM">
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="MZV-PE-sCM">
                     <rect key="frame" x="130" y="379" width="229" height="31"/>
                     <color key="tintColor" systemColor="systemRedColor"/>
                 </slider>
@@ -119,7 +120,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="h2U-M2-jxE">
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="h2U-M2-jxE">
                     <rect key="frame" x="130" y="430" width="229" height="31"/>
                     <color key="tintColor" systemColor="systemRedColor"/>
                 </slider>
@@ -132,7 +133,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ici-Br-p9C">
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ici-Br-p9C">
                     <rect key="frame" x="130" y="481" width="229" height="31"/>
                     <color key="tintColor" systemColor="systemRedColor"/>
                 </slider>
@@ -223,6 +224,9 @@
                         <segment title="Autobot"/>
                         <segment title="Decepticon"/>
                     </segments>
+                    <connections>
+                        <action selector="transformerTypeChanged:" destination="-1" eventType="valueChanged" id="AZC-np-KMF"/>
+                    </connections>
                 </segmentedControl>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRf-Uc-ieu">
                     <rect key="frame" x="20" y="587" width="374" height="50"/>
@@ -234,7 +238,7 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                 </button>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="fQB-9M-lMr">
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="fQB-9M-lMr">
                     <rect key="frame" x="130" y="175" width="229" height="31"/>
                     <color key="tintColor" systemColor="systemRedColor"/>
                 </slider>

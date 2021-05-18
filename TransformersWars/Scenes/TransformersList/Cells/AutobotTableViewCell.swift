@@ -45,11 +45,12 @@ class AutobotTableViewCell: UITableViewCell {
         self.courageProgressView.tintColor = AppConstants.Color.redAutobot
         self.firepowerProgressView.tintColor = AppConstants.Color.redAutobot
         self.skillProgressView.tintColor = AppConstants.Color.redAutobot
+        self.selectionStyle = .none
     }
 
     /// Setup cell data
     /// - Parameter model: Data model with the info
-    func setup(model: TransformerTableViewCellModel) {
+    func setup(model: Transformer) {
         self.nameLabel.text = model.name
         self.strengthProgressView.setProgress(Float(model.strength) * 0.1, animated: false)
         self.intelligenceProgressView.setProgress(Float(model.intelligence) * 0.1, animated: false)

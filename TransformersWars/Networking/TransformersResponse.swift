@@ -12,19 +12,22 @@ struct TransformersList: Codable {
     let transformers: [Transformer]
 }
 
+/// <#Description#>
 struct Transformer: Codable {
     let identifier: String
-    let name: String
-    let strength: Int
-    let intelligence: Int
-    let speed: Int
-    let endurance: Int
-    let rank: Int
-    let courage: Int
-    let firepower: Int
-    let skill: Int
-    let team: String
-    let teamIcon: String
+    var name: String
+    var strength: Int
+    var intelligence: Int
+    var speed: Int
+    var endurance: Int
+    var rank: Int
+    var courage: Int
+    var firepower: Int
+    var skill: Int
+    var team: String
+    var teamIcon: String
+    // This field will be used later to define the cell´s background color
+    var oddCell: Bool = false
 
     enum CodingKeys: String, CodingKey {
         case identifier = "id"

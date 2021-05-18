@@ -24,6 +24,7 @@ class TransformersListViewController: UIViewController {
     // MARK: - Class variables
     var viewModel: TransformersListViewModel
     let disposeBag = DisposeBag()
+    var color = AppConstants.Color.getRandomColor()
 
     init(
         viewModel: TransformersListViewModel = TransformersListViewModel()
@@ -59,9 +60,9 @@ class TransformersListViewController: UIViewController {
         ]
 
         self.navigationController?.navigationBar.barStyle = .black
-        self.navigationController?.navigationBar.barTintColor = .red
-        self.bottomStackView.backgroundColor = .red
-        self.safeZoneView.backgroundColor = .red
+        self.navigationController?.navigationBar.barTintColor = color
+        self.bottomStackView.backgroundColor = color
+        self.safeZoneView.backgroundColor = color
 
         self.addButton.titleLabel?.font = .optimus(size: 24)
         self.fightButton.titleLabel?.font = .optimus(size: 24)
@@ -73,7 +74,7 @@ class TransformersListViewController: UIViewController {
             [NSAttributedString.Key.font: UIFont.optimus(size: 20)],
             for: .normal
         )
-        navigationItem.backBarButtonItem = backItem
+        self.navigationItem.backBarButtonItem = backItem
     }
 
     func showApiTokenRequestErrorAlert(message: String) {
@@ -119,10 +120,20 @@ class TransformersListViewController: UIViewController {
     }
 
     @IBAction func addButtonTapped(_ sender: Any) {
-        let newTransformerViewController = NewTransformerViewController()
-        self.navigationController?.pushViewController(newTransformerViewController, animated: true)
+        self.pushTransformerEditor(operation: .create)
     }
 
+    func pushTransformerEditor(
+        operation: TransformerEditorOperation,
+        model: Transformer? = AppConstants.emptyTransformer
+    ) {
+        let transformerEditorViewController = TransformerEditorViewController(
+            parentController: self,
+            operation: operation,
+            model: model
+        )
+        self.navigationController?.pushViewController(transformerEditorViewController, animated: true)
+    }
 }
 
 extension TransformersListViewController {
@@ -148,6 +159,24 @@ extension TransformersListViewController {
         self.viewModel.output.transformersItems
             .drive(transformersTableView.rx.items(dataSource: dataSource()))
             .disposed(by: disposeBag)
+
+        self.transformersTableView.rx.modelSelected(TransformerItem.self)
+            .subscribe(
+                onNext: { [weak self] model in
+                    switch model {
+                    case .autobotItem(model: let model):
+                        print("[TransformersListViewController] setupBinding() modelSelected:\(model)")
+                        if let self = self {
+                            self.pushTransformerEditor(operation: .update, model: model)
+                        }
+                    case .decepticonItem(model: let model):
+                        print("[TransformersListViewController] setupBinding() modelSelected:\(model)")
+                        if let self = self {
+                            self.pushTransformerEditor(operation: .update, model: model)
+                        }
+                    }
+                }
+            ).disposed(by: disposeBag)
 
         self.viewModel.output.gotRequestError
             .drive(
