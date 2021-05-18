@@ -36,6 +36,7 @@
 		F05D346226507E4700020B02 /* TransformersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D346126507E4700020B02 /* TransformersResponse.swift */; };
 		F0C10EE02652FAF400831A6B /* RequestTransformerCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C10EDF2652FAF400831A6B /* RequestTransformerCreation.swift */; };
 		F0C10EE2265336CB00831A6B /* RequestTransformerUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C10EE1265336CB00831A6B /* RequestTransformerUpdate.swift */; };
+		F0C10EE42653478F00831A6B /* RequestTransformerDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C10EE32653478F00831A6B /* RequestTransformerDelete.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		F05D346126507E4700020B02 /* TransformersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformersResponse.swift; sourceTree = "<group>"; };
 		F0C10EDF2652FAF400831A6B /* RequestTransformerCreation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTransformerCreation.swift; sourceTree = "<group>"; };
 		F0C10EE1265336CB00831A6B /* RequestTransformerUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTransformerUpdate.swift; sourceTree = "<group>"; };
+		F0C10EE32653478F00831A6B /* RequestTransformerDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTransformerDelete.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +279,7 @@
 				F02175B72651CDF00067F966 /* RequestTransformersList.swift */,
 				F0C10EDF2652FAF400831A6B /* RequestTransformerCreation.swift */,
 				F0C10EE1265336CB00831A6B /* RequestTransformerUpdate.swift */,
+				F0C10EE32653478F00831A6B /* RequestTransformerDelete.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				F02175B82651CDF00067F966 /* RequestTransformersList.swift in Sources */,
 				F05D345E26506CF500020B02 /* AutobotTableViewCell.swift in Sources */,
 				F02175B62651A9220067F966 /* RequestApiToken.swift in Sources */,
+				F0C10EE42653478F00831A6B /* RequestTransformerDelete.swift in Sources */,
 				F05D344A26502B8500020B02 /* AppConstants.swift in Sources */,
 				F02175B3265168320067F966 /* DecepticonTableViewCell.swift in Sources */,
 			);

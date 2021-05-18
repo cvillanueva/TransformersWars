@@ -117,6 +117,11 @@ class TransformerEditorViewModel {
             self.requestTransformerUpdate(model: self.transformerModel)
         }
     }
+
+    func deleteButtonTapped() {
+        print("[TransformerEditorViewModel] deleteButtonTapped()")
+        self.requestTransformerDelete(model: self.transformerModel)
+    }
 }
 
 extension TransformerEditorViewModel: RequestTransformerCreationProtocol {
@@ -155,6 +160,23 @@ extension TransformerEditorViewModel: RequestTransformerUpdateProtocol {
     }
 
     func serveUpdatedTransformer() {
+        self._gotRequestSuccess.onNext(true)
+    }
+}
+
+extension TransformerEditorViewModel: RequestTransformerDeleteProtocol {
+
+    // MARK: - RequestTransformerUpdateProtocol implementation
+
+    func requestTransformerDelete(model: Transformer) {
+        _ = RequestTransformerDelete(
+            delegate: self,
+            apiToken: AppStorage.getApiToken(),
+            model: model
+        )
+    }
+
+    func serveDeletedTransformer() {
         self._gotRequestSuccess.onNext(true)
     }
 }

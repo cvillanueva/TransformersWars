@@ -25,7 +25,7 @@ class RequestTransformerUpdate {
         request(apiToken: apiToken, model: model)
     }
 
-    private func request(apiToken: String, model: Transformer) {
+    private func buildParameters(model: Transformer) -> Parameters {
         let params: Parameters = [
             "id": model.identifier,
             "name": model.name,
@@ -40,6 +40,11 @@ class RequestTransformerUpdate {
             "team": model.team
         ]
 
+        return params
+    }
+
+    private func request(apiToken: String, model: Transformer) {
+        let params = buildParameters(model: model)
         print("[RequestTransformerUpdate] params:\(params)")
 
         if NetworkReachabilityManager()!.isReachable {
@@ -59,7 +64,10 @@ class RequestTransformerUpdate {
                         return
                     }
 
-                    guard let prettyJsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted) else {
+                    guard let prettyJsonData = try? JSONSerialization.data(
+                            withJSONObject: jsonObject,
+                            options: .prettyPrinted
+                    ) else {
                         print("[RequestTransformerUpdate] Error converting JSON object to Pretty JSON data")
                         if let delegate = self.delegate {
                             delegate.serverErrorHappened(errorType: .transformerUpdateError)

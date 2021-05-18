@@ -91,6 +91,15 @@ class TransformerEditorViewController: UIViewController {
 
             self.setFields()
 
+            let deleteItem = UIBarButtonItem(
+                barButtonSystemItem: .trash,
+                target: self,
+                action: #selector(deleteButtonTapped)
+            )
+            deleteItem.title = "Delete"
+            deleteItem.tintColor = .white
+            self.navigationItem.rightBarButtonItem = deleteItem
+
         } else {
             if parentController.color == AppConstants.Color.redAutobot {
                 self.transformerTypeSegmentedControl.selectedSegmentIndex = 0
@@ -178,6 +187,11 @@ class TransformerEditorViewController: UIViewController {
         )
 
         present(refreshAlert, animated: true, completion: nil)
+    }
+
+    @objc func deleteButtonTapped() {
+        print("[TransformersListViewController] deleteButtonTapped()")
+        self.viewModel.deleteButtonTapped()
     }
 }
 

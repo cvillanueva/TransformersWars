@@ -30,6 +30,7 @@ class AppConstants {
     enum ApiRequestEditionError: String {
         case transformerCreationError = "There was a error creating the transformer."
         case transformerUpdateError = "There was a error updating the transformer."
+        case transformerDeleteError = "There was a error deleting the transformer."
     }
 
     // MARK: - Storage
