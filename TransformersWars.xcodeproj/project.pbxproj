@@ -1,0 +1,876 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04C69EF313C3B68EF6C0F4A6 /* Pods_TransformersWars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A124E40457A75FAAAA2156 /* Pods_TransformersWars.framework */; };
+		4DBEF28732CC92B88F7D7558 /* Pods_TransformersWarsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1AD0644B1056708FAFF559E /* Pods_TransformersWarsTests.framework */; };
+		F02175B3265168320067F966 /* DecepticonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02175B1265168320067F966 /* DecepticonTableViewCell.swift */; };
+		F02175B4265168320067F966 /* DecepticonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02175B2265168320067F966 /* DecepticonTableViewCell.xib */; };
+		F02175B62651A9220067F966 /* RequestApiToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02175B52651A9220067F966 /* RequestApiToken.swift */; };
+		F02175B82651CDF00067F966 /* RequestTransformersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02175B72651CDF00067F966 /* RequestTransformersList.swift */; };
+		F02175BC2651DEFA0067F966 /* TransformerEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02175BA2651DEFA0067F966 /* TransformerEditorViewController.swift */; };
+		F02175BD2651DEFA0067F966 /* TransformerEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02175BB2651DEFA0067F966 /* TransformerEditorViewController.xib */; };
+		F02175BF2651F4230067F966 /* TransformerEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02175BE2651F4230067F966 /* TransformerEditorViewModel.swift */; };
+		F05D34132650266B00020B02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D34122650266B00020B02 /* AppDelegate.swift */; };
+		F05D34152650266B00020B02 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D34142650266B00020B02 /* SceneDelegate.swift */; };
+		F05D341C2650266C00020B02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05D341B2650266C00020B02 /* Assets.xcassets */; };
+		F05D341F2650266C00020B02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F05D341D2650266C00020B02 /* LaunchScreen.storyboard */; };
+		F05D342A2650266C00020B02 /* TransformersWarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D34292650266C00020B02 /* TransformersWarsTests.swift */; };
+		F05D34352650266C00020B02 /* TransformersWarsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D34342650266C00020B02 /* TransformersWarsUITests.swift */; };
+		F05D34462650297900020B02 /* TransformersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D34442650297900020B02 /* TransformersListViewController.swift */; };
+		F05D34472650297900020B02 /* TransformersListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F05D34452650297900020B02 /* TransformersListViewController.xib */; };
+		F05D344A26502B8500020B02 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D344926502B8500020B02 /* AppConstants.swift */; };
+		F05D344D2650313F00020B02 /* TransformersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D344C2650313F00020B02 /* TransformersListViewModel.swift */; };
+		F05D34542650378500020B02 /* Optimus-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F05D34512650378500020B02 /* Optimus-Bold.otf */; };
+		F05D34552650378500020B02 /* OptimusHollow.otf in Resources */ = {isa = PBXBuildFile; fileRef = F05D34522650378500020B02 /* OptimusHollow.otf */; };
+		F05D34562650378500020B02 /* Optimus.otf in Resources */ = {isa = PBXBuildFile; fileRef = F05D34532650378500020B02 /* Optimus.otf */; };
+		F05D345826503B4E00020B02 /* AppExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D345726503B4E00020B02 /* AppExtensions.swift */; };
+		F05D345A2650518D00020B02 /* AppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D34592650518D00020B02 /* AppStorage.swift */; };
+		F05D345E26506CF500020B02 /* AutobotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D345C26506CF500020B02 /* AutobotTableViewCell.swift */; };
+		F05D345F26506CF500020B02 /* AutobotTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F05D345D26506CF500020B02 /* AutobotTableViewCell.xib */; };
+		F05D346226507E4700020B02 /* TransformersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D346126507E4700020B02 /* TransformersResponse.swift */; };
+		F0C10EE02652FAF400831A6B /* RequestTransformerCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C10EDF2652FAF400831A6B /* RequestTransformerCreation.swift */; };
+		F0C10EE2265336CB00831A6B /* RequestTransformerUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C10EE1265336CB00831A6B /* RequestTransformerUpdate.swift */; };
+		F0C10EE42653478F00831A6B /* RequestTransformerDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C10EE32653478F00831A6B /* RequestTransformerDelete.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F05D34262650266C00020B02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F05D34072650266B00020B02 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F05D340E2650266B00020B02;
+			remoteInfo = TransformersWars;
+		};
+		F05D34312650266C00020B02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F05D34072650266B00020B02 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F05D340E2650266B00020B02;
+			remoteInfo = TransformersWars;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		225563F79B90ABD7F4C01AFB /* Pods-TransformersWarsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransformersWarsTests.debug.xcconfig"; path = "Target Support Files/Pods-TransformersWarsTests/Pods-TransformersWarsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		90E6B2A4F085B3EBA7A7C48A /* Pods-TransformersWarsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransformersWarsTests.release.xcconfig"; path = "Target Support Files/Pods-TransformersWarsTests/Pods-TransformersWarsTests.release.xcconfig"; sourceTree = "<group>"; };
+		A7A124E40457A75FAAAA2156 /* Pods_TransformersWars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransformersWars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADE7C131D3D71C6FBC082339 /* Pods-TransformersWars.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransformersWars.release.xcconfig"; path = "Target Support Files/Pods-TransformersWars/Pods-TransformersWars.release.xcconfig"; sourceTree = "<group>"; };
+		BC27A0E27CA6150D0B931A42 /* Pods-TransformersWars.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransformersWars.debug.xcconfig"; path = "Target Support Files/Pods-TransformersWars/Pods-TransformersWars.debug.xcconfig"; sourceTree = "<group>"; };
+		D1AD0644B1056708FAFF559E /* Pods_TransformersWarsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransformersWarsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F02175B1265168320067F966 /* DecepticonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecepticonTableViewCell.swift; sourceTree = "<group>"; };
+		F02175B2265168320067F966 /* DecepticonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DecepticonTableViewCell.xib; sourceTree = "<group>"; };
+		F02175B52651A9220067F966 /* RequestApiToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestApiToken.swift; sourceTree = "<group>"; };
+		F02175B72651CDF00067F966 /* RequestTransformersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTransformersList.swift; sourceTree = "<group>"; };
+		F02175BA2651DEFA0067F966 /* TransformerEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformerEditorViewController.swift; sourceTree = "<group>"; };
+		F02175BB2651DEFA0067F966 /* TransformerEditorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransformerEditorViewController.xib; sourceTree = "<group>"; };
+		F02175BE2651F4230067F966 /* TransformerEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformerEditorViewModel.swift; sourceTree = "<group>"; };
+		F05D340F2650266B00020B02 /* TransformersWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransformersWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F05D34122650266B00020B02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F05D34142650266B00020B02 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F05D341B2650266C00020B02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F05D341E2650266C00020B02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F05D34202650266C00020B02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F05D34252650266C00020B02 /* TransformersWarsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransformersWarsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F05D34292650266C00020B02 /* TransformersWarsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformersWarsTests.swift; sourceTree = "<group>"; };
+		F05D342B2650266C00020B02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F05D34302650266C00020B02 /* TransformersWarsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransformersWarsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F05D34342650266C00020B02 /* TransformersWarsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformersWarsUITests.swift; sourceTree = "<group>"; };
+		F05D34362650266C00020B02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F05D34442650297900020B02 /* TransformersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformersListViewController.swift; sourceTree = "<group>"; };
+		F05D34452650297900020B02 /* TransformersListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransformersListViewController.xib; sourceTree = "<group>"; };
+		F05D344926502B8500020B02 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		F05D344C2650313F00020B02 /* TransformersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformersListViewModel.swift; sourceTree = "<group>"; };
+		F05D34512650378500020B02 /* Optimus-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Optimus-Bold.otf"; sourceTree = "<group>"; };
+		F05D34522650378500020B02 /* OptimusHollow.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = OptimusHollow.otf; sourceTree = "<group>"; };
+		F05D34532650378500020B02 /* Optimus.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Optimus.otf; sourceTree = "<group>"; };
+		F05D345726503B4E00020B02 /* AppExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExtensions.swift; sourceTree = "<group>"; };
+		F05D34592650518D00020B02 /* AppStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorage.swift; sourceTree = "<group>"; };
+		F05D345C26506CF500020B02 /* AutobotTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutobotTableViewCell.swift; sourceTree = "<group>"; };
+		F05D345D26506CF500020B02 /* AutobotTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AutobotTableViewCell.xib; sourceTree = "<group>"; };
+		F05D346126507E4700020B02 /* TransformersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformersResponse.swift; sourceTree = "<group>"; };
+		F0C10EDF2652FAF400831A6B /* RequestTransformerCreation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTransformerCreation.swift; sourceTree = "<group>"; };
+		F0C10EE1265336CB00831A6B /* RequestTransformerUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTransformerUpdate.swift; sourceTree = "<group>"; };
+		F0C10EE32653478F00831A6B /* RequestTransformerDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTransformerDelete.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F05D340C2650266B00020B02 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04C69EF313C3B68EF6C0F4A6 /* Pods_TransformersWars.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F05D34222650266C00020B02 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DBEF28732CC92B88F7D7558 /* Pods_TransformersWarsTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F05D342D2650266C00020B02 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C27F66A3B24341B4F15B617 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A7A124E40457A75FAAAA2156 /* Pods_TransformersWars.framework */,
+				D1AD0644B1056708FAFF559E /* Pods_TransformersWarsTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A51F373E0A08D84369D25548 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BC27A0E27CA6150D0B931A42 /* Pods-TransformersWars.debug.xcconfig */,
+				ADE7C131D3D71C6FBC082339 /* Pods-TransformersWars.release.xcconfig */,
+				225563F79B90ABD7F4C01AFB /* Pods-TransformersWarsTests.debug.xcconfig */,
+				90E6B2A4F085B3EBA7A7C48A /* Pods-TransformersWarsTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F02175B92651DED00067F966 /* TransformerEditor */ = {
+			isa = PBXGroup;
+			children = (
+				F02175BA2651DEFA0067F966 /* TransformerEditorViewController.swift */,
+				F02175BB2651DEFA0067F966 /* TransformerEditorViewController.xib */,
+				F02175BE2651F4230067F966 /* TransformerEditorViewModel.swift */,
+			);
+			path = TransformerEditor;
+			sourceTree = "<group>";
+		};
+		F05D34062650266B00020B02 = {
+			isa = PBXGroup;
+			children = (
+				F05D34112650266B00020B02 /* TransformersWars */,
+				F05D34282650266C00020B02 /* TransformersWarsTests */,
+				F05D34332650266C00020B02 /* TransformersWarsUITests */,
+				F05D34102650266B00020B02 /* Products */,
+				A51F373E0A08D84369D25548 /* Pods */,
+				1C27F66A3B24341B4F15B617 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F05D34102650266B00020B02 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F05D340F2650266B00020B02 /* TransformersWars.app */,
+				F05D34252650266C00020B02 /* TransformersWarsTests.xctest */,
+				F05D34302650266C00020B02 /* TransformersWarsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F05D34112650266B00020B02 /* TransformersWars */ = {
+			isa = PBXGroup;
+			children = (
+				F05D344F2650372A00020B02 /* Assets */,
+				F05D34432650296400020B02 /* Scenes */,
+				F05D346026507E1100020B02 /* Networking */,
+				F05D344826502B2B00020B02 /* Utils */,
+				F05D34122650266B00020B02 /* AppDelegate.swift */,
+				F05D34142650266B00020B02 /* SceneDelegate.swift */,
+				F05D341B2650266C00020B02 /* Assets.xcassets */,
+				F05D341D2650266C00020B02 /* LaunchScreen.storyboard */,
+				F05D34202650266C00020B02 /* Info.plist */,
+			);
+			path = TransformersWars;
+			sourceTree = "<group>";
+		};
+		F05D34282650266C00020B02 /* TransformersWarsTests */ = {
+			isa = PBXGroup;
+			children = (
+				F05D34292650266C00020B02 /* TransformersWarsTests.swift */,
+				F05D342B2650266C00020B02 /* Info.plist */,
+			);
+			path = TransformersWarsTests;
+			sourceTree = "<group>";
+		};
+		F05D34332650266C00020B02 /* TransformersWarsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F05D34342650266C00020B02 /* TransformersWarsUITests.swift */,
+				F05D34362650266C00020B02 /* Info.plist */,
+			);
+			path = TransformersWarsUITests;
+			sourceTree = "<group>";
+		};
+		F05D34432650296400020B02 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				F02175B92651DED00067F966 /* TransformerEditor */,
+				F05D344E2650314400020B02 /* TransformersList */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		F05D344826502B2B00020B02 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F05D344926502B8500020B02 /* AppConstants.swift */,
+				F05D345726503B4E00020B02 /* AppExtensions.swift */,
+				F05D34592650518D00020B02 /* AppStorage.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		F05D344E2650314400020B02 /* TransformersList */ = {
+			isa = PBXGroup;
+			children = (
+				F05D345B26506C6400020B02 /* Cells */,
+				F05D34442650297900020B02 /* TransformersListViewController.swift */,
+				F05D34452650297900020B02 /* TransformersListViewController.xib */,
+				F05D344C2650313F00020B02 /* TransformersListViewModel.swift */,
+			);
+			path = TransformersList;
+			sourceTree = "<group>";
+		};
+		F05D344F2650372A00020B02 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				F05D34502650378500020B02 /* Fonts */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		F05D34502650378500020B02 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F05D34512650378500020B02 /* Optimus-Bold.otf */,
+				F05D34522650378500020B02 /* OptimusHollow.otf */,
+				F05D34532650378500020B02 /* Optimus.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F05D345B26506C6400020B02 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F05D345C26506CF500020B02 /* AutobotTableViewCell.swift */,
+				F05D345D26506CF500020B02 /* AutobotTableViewCell.xib */,
+				F02175B1265168320067F966 /* DecepticonTableViewCell.swift */,
+				F02175B2265168320067F966 /* DecepticonTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		F05D346026507E1100020B02 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F05D346126507E4700020B02 /* TransformersResponse.swift */,
+				F02175B52651A9220067F966 /* RequestApiToken.swift */,
+				F02175B72651CDF00067F966 /* RequestTransformersList.swift */,
+				F0C10EDF2652FAF400831A6B /* RequestTransformerCreation.swift */,
+				F0C10EE1265336CB00831A6B /* RequestTransformerUpdate.swift */,
+				F0C10EE32653478F00831A6B /* RequestTransformerDelete.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F05D340E2650266B00020B02 /* TransformersWars */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F05D34392650266C00020B02 /* Build configuration list for PBXNativeTarget "TransformersWars" */;
+			buildPhases = (
+				D30171EEA758CC5FE2717E0D /* [CP] Check Pods Manifest.lock */,
+				F05D340B2650266B00020B02 /* Sources */,
+				F05D340C2650266B00020B02 /* Frameworks */,
+				F05D340D2650266B00020B02 /* Resources */,
+				441349020FFD129B546FE5F1 /* [CP] Embed Pods Frameworks */,
+				F05D3442265028EB00020B02 /* Swiftlint */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TransformersWars;
+			productName = TransformersWars;
+			productReference = F05D340F2650266B00020B02 /* TransformersWars.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F05D34242650266C00020B02 /* TransformersWarsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F05D343C2650266C00020B02 /* Build configuration list for PBXNativeTarget "TransformersWarsTests" */;
+			buildPhases = (
+				4A4C7BFD7D26967BFA1C6986 /* [CP] Check Pods Manifest.lock */,
+				F05D34212650266C00020B02 /* Sources */,
+				F05D34222650266C00020B02 /* Frameworks */,
+				F05D34232650266C00020B02 /* Resources */,
+				2ADA867CFB0DDD9BBE7203B1 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F05D34272650266C00020B02 /* PBXTargetDependency */,
+			);
+			name = TransformersWarsTests;
+			productName = TransformersWarsTests;
+			productReference = F05D34252650266C00020B02 /* TransformersWarsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F05D342F2650266C00020B02 /* TransformersWarsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F05D343F2650266C00020B02 /* Build configuration list for PBXNativeTarget "TransformersWarsUITests" */;
+			buildPhases = (
+				F05D342C2650266C00020B02 /* Sources */,
+				F05D342D2650266C00020B02 /* Frameworks */,
+				F05D342E2650266C00020B02 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F05D34322650266C00020B02 /* PBXTargetDependency */,
+			);
+			name = TransformersWarsUITests;
+			productName = TransformersWarsUITests;
+			productReference = F05D34302650266C00020B02 /* TransformersWarsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F05D34072650266B00020B02 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					F05D340E2650266B00020B02 = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					F05D34242650266C00020B02 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = F05D340E2650266B00020B02;
+					};
+					F05D342F2650266C00020B02 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = F05D340E2650266B00020B02;
+					};
+				};
+			};
+			buildConfigurationList = F05D340A2650266B00020B02 /* Build configuration list for PBXProject "TransformersWars" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F05D34062650266B00020B02;
+			productRefGroup = F05D34102650266B00020B02 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F05D340E2650266B00020B02 /* TransformersWars */,
+				F05D34242650266C00020B02 /* TransformersWarsTests */,
+				F05D342F2650266C00020B02 /* TransformersWarsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F05D340D2650266B00020B02 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F05D34472650297900020B02 /* TransformersListViewController.xib in Resources */,
+				F05D34542650378500020B02 /* Optimus-Bold.otf in Resources */,
+				F02175BD2651DEFA0067F966 /* TransformerEditorViewController.xib in Resources */,
+				F05D341F2650266C00020B02 /* LaunchScreen.storyboard in Resources */,
+				F05D34552650378500020B02 /* OptimusHollow.otf in Resources */,
+				F05D341C2650266C00020B02 /* Assets.xcassets in Resources */,
+				F02175B4265168320067F966 /* DecepticonTableViewCell.xib in Resources */,
+				F05D345F26506CF500020B02 /* AutobotTableViewCell.xib in Resources */,
+				F05D34562650378500020B02 /* Optimus.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F05D34232650266C00020B02 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F05D342E2650266C00020B02 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2ADA867CFB0DDD9BBE7203B1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TransformersWarsTests/Pods-TransformersWarsTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TransformersWarsTests/Pods-TransformersWarsTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TransformersWarsTests/Pods-TransformersWarsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		441349020FFD129B546FE5F1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TransformersWars/Pods-TransformersWars-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TransformersWars/Pods-TransformersWars-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TransformersWars/Pods-TransformersWars-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A4C7BFD7D26967BFA1C6986 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TransformersWarsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D30171EEA758CC5FE2717E0D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TransformersWars-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F05D3442265028EB00020B02 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F05D340B2650266B00020B02 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F05D34462650297900020B02 /* TransformersListViewController.swift in Sources */,
+				F02175BF2651F4230067F966 /* TransformerEditorViewModel.swift in Sources */,
+				F05D346226507E4700020B02 /* TransformersResponse.swift in Sources */,
+				F05D34132650266B00020B02 /* AppDelegate.swift in Sources */,
+				F05D344D2650313F00020B02 /* TransformersListViewModel.swift in Sources */,
+				F05D345A2650518D00020B02 /* AppStorage.swift in Sources */,
+				F05D345826503B4E00020B02 /* AppExtensions.swift in Sources */,
+				F0C10EE02652FAF400831A6B /* RequestTransformerCreation.swift in Sources */,
+				F0C10EE2265336CB00831A6B /* RequestTransformerUpdate.swift in Sources */,
+				F02175BC2651DEFA0067F966 /* TransformerEditorViewController.swift in Sources */,
+				F05D34152650266B00020B02 /* SceneDelegate.swift in Sources */,
+				F02175B82651CDF00067F966 /* RequestTransformersList.swift in Sources */,
+				F05D345E26506CF500020B02 /* AutobotTableViewCell.swift in Sources */,
+				F02175B62651A9220067F966 /* RequestApiToken.swift in Sources */,
+				F0C10EE42653478F00831A6B /* RequestTransformerDelete.swift in Sources */,
+				F05D344A26502B8500020B02 /* AppConstants.swift in Sources */,
+				F02175B3265168320067F966 /* DecepticonTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F05D34212650266C00020B02 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F05D342A2650266C00020B02 /* TransformersWarsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F05D342C2650266C00020B02 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F05D34352650266C00020B02 /* TransformersWarsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F05D34272650266C00020B02 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F05D340E2650266B00020B02 /* TransformersWars */;
+			targetProxy = F05D34262650266C00020B02 /* PBXContainerItemProxy */;
+		};
+		F05D34322650266C00020B02 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F05D340E2650266B00020B02 /* TransformersWars */;
+			targetProxy = F05D34312650266C00020B02 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F05D341D2650266C00020B02 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F05D341E2650266C00020B02 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F05D34372650266C00020B02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F05D34382650266C00020B02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F05D343A2650266C00020B02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC27A0E27CA6150D0B931A42 /* Pods-TransformersWars.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BP89N8JJ55;
+				INFOPLIST_FILE = TransformersWars/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cva.TransformersWars;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F05D343B2650266C00020B02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ADE7C131D3D71C6FBC082339 /* Pods-TransformersWars.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BP89N8JJ55;
+				INFOPLIST_FILE = TransformersWars/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cva.TransformersWars;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F05D343D2650266C00020B02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 225563F79B90ABD7F4C01AFB /* Pods-TransformersWarsTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BP89N8JJ55;
+				INFOPLIST_FILE = TransformersWarsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cva.TransformersWarsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TransformersWars.app/TransformersWars";
+			};
+			name = Debug;
+		};
+		F05D343E2650266C00020B02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90E6B2A4F085B3EBA7A7C48A /* Pods-TransformersWarsTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BP89N8JJ55;
+				INFOPLIST_FILE = TransformersWarsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cva.TransformersWarsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TransformersWars.app/TransformersWars";
+			};
+			name = Release;
+		};
+		F05D34402650266C00020B02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BP89N8JJ55;
+				INFOPLIST_FILE = TransformersWarsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cva.TransformersWarsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TransformersWars;
+			};
+			name = Debug;
+		};
+		F05D34412650266C00020B02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BP89N8JJ55;
+				INFOPLIST_FILE = TransformersWarsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cva.TransformersWarsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TransformersWars;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F05D340A2650266B00020B02 /* Build configuration list for PBXProject "TransformersWars" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F05D34372650266C00020B02 /* Debug */,
+				F05D34382650266C00020B02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F05D34392650266C00020B02 /* Build configuration list for PBXNativeTarget "TransformersWars" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F05D343A2650266C00020B02 /* Debug */,
+				F05D343B2650266C00020B02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F05D343C2650266C00020B02 /* Build configuration list for PBXNativeTarget "TransformersWarsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F05D343D2650266C00020B02 /* Debug */,
+				F05D343E2650266C00020B02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F05D343F2650266C00020B02 /* Build configuration list for PBXNativeTarget "TransformersWarsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F05D34402650266C00020B02 /* Debug */,
+				F05D34412650266C00020B02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F05D34072650266B00020B02 /* Project object */;
+}
