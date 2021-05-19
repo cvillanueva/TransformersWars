@@ -21,3 +21,13 @@ extension UIFont {
         return UIFont(name: AppConstants.Fonts.optimusHollow, size: size) ?? UIFont.systemFont(ofSize: 24)
     }
 }
+
+extension Array {
+    /// This method gets an element
+    /// - Parameter index: index
+    /// - Returns: out of range returns nil
+    func getElement(at index: Int) -> Element? {
+        let isValidIndex = index >= 0 && index < count
+        return isValidIndex ? self[index] : nil
+    }
+}

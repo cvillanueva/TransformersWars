@@ -11,6 +11,7 @@ import RxDataSources
 import RxSwift
 
 // swiftlint:disable identifier_name
+// swiftlint:disable function_body_length
 
 class TransformersBattleViewModel {
 
@@ -61,10 +62,11 @@ class TransformersBattleViewModel {
             decepticonCourage: 9, decepticonStrength: 9, decepticonSkill: 9, decepticonSpeed: 9,
             decepticonEndurance: 9, decepticonFirepower: 9, decepticonIntelligence: 9, decepticonRank: 9,
             decepticonOverall: 72,
-            battleResult: BattleResultModel(
+            battleResultModel: BattleResultModel(
                 autobotStatus: "Victory", decepticonStatus: "Defeated", result: "Potatobot Won",
                 resultColor: AppConstants.Color.redAutobot,
-                winningTeam: AppConstants.BusinessLogic.BattleResult.autobotWon
+                winningTransformerType: AppConstants.BattleResult.autobotWon,
+                victoryCriteria: .victoryByName
             ),
             oddCell: false
         )
@@ -77,10 +79,11 @@ class TransformersBattleViewModel {
             decepticonCourage: 9, decepticonStrength: 9, decepticonSkill: 9, decepticonSpeed: 9,
             decepticonEndurance: 9, decepticonFirepower: 9, decepticonIntelligence: 9, decepticonRank: 9,
             decepticonOverall: 64,
-            battleResult: BattleResultModel(
+            battleResultModel: BattleResultModel(
                 autobotStatus: "Defeated", decepticonStatus: "Victory", result: "Flaitetron Won",
                 resultColor: AppConstants.Color.purpleDecepticon,
-                winningTeam: AppConstants.BusinessLogic.BattleResult.decepticonWon
+                winningTransformerType: AppConstants.BattleResult.decepticonWon,
+                victoryCriteria: .victoryByOverall
             ),
             oddCell: false
         )
@@ -99,7 +102,17 @@ class TransformersBattleViewModel {
             var model = battle
             print("[BattlesListViewModel] showList() \(model.autobotName) VS \(model.decepticonName)")
             model.oddCell = oddCounter % 2 == 0
-            currentBattlesItems.append(.battleItem(model: model))
+
+            if model.decepticonName == AppConstants.empty {
+                currentBattlesItems.append(.autobotSkippedBattleItem(model: model))
+
+            } else if model.autobotName == AppConstants.empty {
+                currentBattlesItems.append(.decepticonSkippedBattleItem(model: model))
+
+            } else {
+                currentBattlesItems.append(.battleItem(model: model))
+            }
+
             oddCounter += 1
         }
 
@@ -142,14 +155,27 @@ extension TransformersBattleViewModel {
         var battleList: [BattleModel] = []
 
         for i in 0...longerCount-1 {
+            let autobot = getTransformerFromList(transformersList: autobotsList, index: i)
+            let decepticon = getTransformerFromList(transformersList: decepticonsList, index: i)
+
+            print("BATTLE:\(i) autobot:<\(autobot.name)> rank:\(autobot.rank) decepticon:<\(decepticon.name)> rank:\(decepticon.rank)")
+
             let battleModel = getBattle(
-                autobot: autobotsList[i],
-                decepticon: decepticonsList[i]
+                autobot: autobot,
+                decepticon: decepticon
             )
             battleList.append(battleModel)
         }
 
         showList(battleList: battleList)
+    }
+
+    func getTransformerFromList(transformersList: [Transformer], index: Int) -> Transformer {
+        if index < transformersList.count {
+            return transformersList[index]
+        } else {
+            return AppConstants.emptyTransformer
+        }
     }
 
     func getBattle(autobot: Transformer, decepticon: Transformer) -> BattleModel {
@@ -178,13 +204,13 @@ extension TransformersBattleViewModel {
             decepticonOverall: decepticonOverall
         )
 
-        if battleResultByName.winningTeam != .battlesContinue {
+        if battleResultByName.winningTransformerType != .battlesContinue {
             battleResult = battleResultByName
 
-        } else if battleResultByCourageAndStrength.winningTeam != .battlesContinue {
+        } else if battleResultByCourageAndStrength.winningTransformerType != .battlesContinue {
             battleResult = battleResultByCourageAndStrength
 
-        } else if battleResultBySkill.winningTeam != .battlesContinue {
+        } else if battleResultBySkill.winningTransformerType != .battlesContinue {
             battleResult = battleResultBySkill
 
         } else {
@@ -212,7 +238,7 @@ extension TransformersBattleViewModel {
             decepticonIntelligence: decepticon.intelligence,
             decepticonRank: decepticon.rank,
             decepticonOverall: decepticonOverall,
-            battleResult: battleResult,
+            battleResultModel: battleResult,
             oddCell: false
         )
     }
@@ -220,23 +246,23 @@ extension TransformersBattleViewModel {
     func checkTransformersName(
         autobot: Transformer,
         decepticon: Transformer
-    ) -> AppConstants.BusinessLogic.BattleResult {
+    ) -> AppConstants.BattleResult {
 
         if autobot.name == decepticon.name {
-            return AppConstants.BusinessLogic.BattleResult.allDestroyed
+            return AppConstants.BattleResult.allDestroyed
 
         } else if autobot.name == AppConstants.BusinessLogic.autobotBoss &&
                   decepticon.name == AppConstants.BusinessLogic.decepticonBoss {
-            return AppConstants.BusinessLogic.BattleResult.allDestroyed
+            return AppConstants.BattleResult.allDestroyed
 
         } else if autobot.name == AppConstants.BusinessLogic.autobotBoss {
-            return AppConstants.BusinessLogic.BattleResult.autobotWon
+            return AppConstants.BattleResult.autobotWon
 
         } else if decepticon.name == AppConstants.BusinessLogic.decepticonBoss {
-            return AppConstants.BusinessLogic.BattleResult.decepticonWon
+            return AppConstants.BattleResult.decepticonWon
 
         } else {
-            return AppConstants.BusinessLogic.BattleResult.battlesContinue
+            return AppConstants.BattleResult.battlesContinue
         }
     }
 
@@ -245,20 +271,22 @@ extension TransformersBattleViewModel {
 
         if resultByName == .autobotWon {
             return BattleResultModel(
-                autobotStatus: AppConstants.BusinessLogic.TransformerBattleStatus.victory.rawValue,
-                decepticonStatus: AppConstants.BusinessLogic.TransformerBattleStatus.defeated.rawValue,
+                autobotStatus: AppConstants.TransformerBattleStatus.victory.rawValue,
+                decepticonStatus: AppConstants.TransformerBattleStatus.defeated.rawValue,
                 result: "\(autobot.name) won",
                 resultColor: AppConstants.Color.redAutobot,
-                winningTeam: AppConstants.BusinessLogic.BattleResult.autobotWon
+                winningTransformerType: AppConstants.BattleResult.autobotWon,
+                victoryCriteria: .victoryByName
             )
 
         } else if resultByName == .decepticonWon {
             return BattleResultModel(
-                autobotStatus: AppConstants.BusinessLogic.TransformerBattleStatus.defeated.rawValue,
-                decepticonStatus: AppConstants.BusinessLogic.TransformerBattleStatus.victory.rawValue,
+                autobotStatus: AppConstants.TransformerBattleStatus.defeated.rawValue,
+                decepticonStatus: AppConstants.TransformerBattleStatus.victory.rawValue,
                 result: "\(decepticon.name) won",
                 resultColor: AppConstants.Color.purpleDecepticon,
-                winningTeam: AppConstants.BusinessLogic.BattleResult.decepticonWon
+                winningTransformerType: AppConstants.BattleResult.decepticonWon,
+                victoryCriteria: .victoryByName
             )
 
         } else {
@@ -275,20 +303,22 @@ extension TransformersBattleViewModel {
 
         if autobotCourageDifference >= 4 && autobotStrengthDifference >= 3 {
             return BattleResultModel(
-                autobotStatus: AppConstants.BusinessLogic.TransformerBattleStatus.victory.rawValue,
-                decepticonStatus: AppConstants.BusinessLogic.TransformerBattleStatus.defeated.rawValue,
+                autobotStatus: AppConstants.TransformerBattleStatus.victory.rawValue,
+                decepticonStatus: AppConstants.TransformerBattleStatus.defeated.rawValue,
                 result: "\(autobot.name) won",
                 resultColor: AppConstants.Color.redAutobot,
-                winningTeam: AppConstants.BusinessLogic.BattleResult.autobotWon
+                winningTransformerType: AppConstants.BattleResult.autobotWon,
+                victoryCriteria: .victoryByCourageAndStrength
             )
 
         } else if decepticonCourageDifference >= 4 && decepticonStrengthDifference >= 3 {
             return BattleResultModel(
-                autobotStatus: AppConstants.BusinessLogic.TransformerBattleStatus.defeated.rawValue,
-                decepticonStatus: AppConstants.BusinessLogic.TransformerBattleStatus.victory.rawValue,
+                autobotStatus: AppConstants.TransformerBattleStatus.defeated.rawValue,
+                decepticonStatus: AppConstants.TransformerBattleStatus.victory.rawValue,
                 result: "\(decepticon.name) won",
                 resultColor: AppConstants.Color.purpleDecepticon,
-                winningTeam: AppConstants.BusinessLogic.BattleResult.decepticonWon
+                winningTransformerType: AppConstants.BattleResult.decepticonWon,
+                victoryCriteria: .victoryByCourageAndStrength
             )
 
         } else {
@@ -302,20 +332,22 @@ extension TransformersBattleViewModel {
 
         if autobotSkillDifference >= 3 {
             return BattleResultModel(
-                autobotStatus: AppConstants.BusinessLogic.TransformerBattleStatus.victory.rawValue,
-                decepticonStatus: AppConstants.BusinessLogic.TransformerBattleStatus.defeated.rawValue,
+                autobotStatus: AppConstants.TransformerBattleStatus.victory.rawValue,
+                decepticonStatus: AppConstants.TransformerBattleStatus.defeated.rawValue,
                 result: "\(autobot.name) won",
                 resultColor: AppConstants.Color.redAutobot,
-                winningTeam: AppConstants.BusinessLogic.BattleResult.autobotWon
+                winningTransformerType: AppConstants.BattleResult.autobotWon,
+                victoryCriteria: .victoryBySkill
             )
 
         } else if decepticonSkillDifference >= 3 {
             return BattleResultModel(
-                autobotStatus: AppConstants.BusinessLogic.TransformerBattleStatus.defeated.rawValue,
-                decepticonStatus: AppConstants.BusinessLogic.TransformerBattleStatus.victory.rawValue,
+                autobotStatus: AppConstants.TransformerBattleStatus.defeated.rawValue,
+                decepticonStatus: AppConstants.TransformerBattleStatus.victory.rawValue,
                 result: "\(decepticon.name) won",
                 resultColor: AppConstants.Color.purpleDecepticon,
-                winningTeam: AppConstants.BusinessLogic.BattleResult.decepticonWon
+                winningTransformerType: AppConstants.BattleResult.decepticonWon,
+                victoryCriteria: .victoryBySkill
             )
 
         } else {
@@ -331,19 +363,30 @@ extension TransformersBattleViewModel {
     ) -> BattleResultModel {
         if autobotOverall > decepticonOverall {
             return BattleResultModel(
-                autobotStatus: AppConstants.BusinessLogic.TransformerBattleStatus.victory.rawValue,
-                decepticonStatus: AppConstants.BusinessLogic.TransformerBattleStatus.defeated.rawValue,
+                autobotStatus: AppConstants.TransformerBattleStatus.victory.rawValue,
+                decepticonStatus: AppConstants.TransformerBattleStatus.defeated.rawValue,
                 result: "\(autobot.name) won",
                 resultColor: AppConstants.Color.redAutobot,
-                winningTeam: AppConstants.BusinessLogic.BattleResult.autobotWon
+                winningTransformerType: AppConstants.BattleResult.autobotWon,
+                victoryCriteria: .victoryByOverall
+            )
+        } else if decepticonOverall > autobotOverall {
+            return BattleResultModel(
+                autobotStatus: AppConstants.TransformerBattleStatus.defeated.rawValue,
+                decepticonStatus: AppConstants.TransformerBattleStatus.victory.rawValue,
+                result: "\(decepticon.name) won",
+                resultColor: AppConstants.Color.purpleDecepticon,
+                winningTransformerType: AppConstants.BattleResult.decepticonWon,
+                victoryCriteria: .victoryByOverall
             )
         } else {
             return BattleResultModel(
-                autobotStatus: AppConstants.BusinessLogic.TransformerBattleStatus.defeated.rawValue,
-                decepticonStatus: AppConstants.BusinessLogic.TransformerBattleStatus.victory.rawValue,
-                result: "\(decepticon.name) won",
-                resultColor: AppConstants.Color.purpleDecepticon,
-                winningTeam: AppConstants.BusinessLogic.BattleResult.decepticonWon
+                autobotStatus: AppConstants.TransformerBattleStatus.defeated.rawValue,
+                decepticonStatus: AppConstants.TransformerBattleStatus.victory.rawValue,
+                result: "TIE",
+                resultColor: AppConstants.Color.yellowTie,
+                winningTransformerType: AppConstants.BattleResult.tie,
+                victoryCriteria: .tie
             )
         }
     }
@@ -363,6 +406,8 @@ enum BattlesListSectionModel {
 
 enum BattleItem {
     case battleItem(model: BattleModel)
+    case autobotSkippedBattleItem(model: BattleModel)
+    case decepticonSkippedBattleItem(model: BattleModel)
 }
 
 extension BattlesListSectionModel: SectionModelType {

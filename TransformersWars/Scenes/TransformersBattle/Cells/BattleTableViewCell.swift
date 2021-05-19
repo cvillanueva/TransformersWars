@@ -12,8 +12,15 @@ import UIKit
 class BattleTableViewCell: UITableViewCell {
 
     // MARK: - Widgets
+
     @IBOutlet weak var autobotNameLabel: UILabel!
+    @IBOutlet weak var vsLabel: UILabel!
     @IBOutlet weak var decepticonNameLabel: UILabel!
+
+    @IBOutlet weak var courageView: UIView!
+    @IBOutlet weak var strengthView: UIView!
+    @IBOutlet weak var skillView: UIView!
+    @IBOutlet weak var overallView: UIView!
 
     @IBOutlet weak var autobotCourageProgressView: UIProgressView!
     @IBOutlet weak var autobotStrengthProgressView: UIProgressView!
@@ -128,14 +135,46 @@ class BattleTableViewCell: UITableViewCell {
         self.decepticonRankLabel.text = String(model.decepticonRank)
         self.decepticonOverallLabel.text = String(model.decepticonOverall)
 
-        self.autobotFinalStatusLabel.text = model.battleResult.autobotStatus
-        self.decepticonFinalStatusLabel.text = model.battleResult.decepticonStatus
+        self.autobotFinalStatusLabel.text = model.battleResultModel.autobotStatus
+        self.decepticonFinalStatusLabel.text = model.battleResultModel.decepticonStatus
 
-        self.resultView.backgroundColor = model.battleResult.resultColor
-        self.resultLabel.text = model.battleResult.result
+        self.resultView.backgroundColor = model.battleResultModel.resultColor
+        self.resultLabel.text = model.battleResultModel.result
 
         if model.oddCell {
             self.contentView.backgroundColor = .lightGray.withAlphaComponent(0.2)
+        }
+
+        self.highlightsVicoryField(battleResultModel: model.battleResultModel)
+    }
+
+    /// Highlights criteria that gives victory
+    func highlightsVicoryField(battleResultModel: BattleResultModel) {
+
+        if battleResultModel.victoryCriteria == .victoryByName {
+
+        } else if battleResultModel.victoryCriteria == .victoryByCourageAndStrength {
+
+        }
+
+        switch battleResultModel.victoryCriteria {
+        case .victoryByName:
+            self.autobotNameLabel.backgroundColor = AppConstants.Color.greenVictory
+            self.vsLabel.backgroundColor = AppConstants.Color.greenVictory
+            self.decepticonNameLabel.backgroundColor = AppConstants.Color.greenVictory
+
+        case .victoryByCourageAndStrength:
+            self.courageView.backgroundColor = AppConstants.Color.greenVictory
+            self.strengthView.backgroundColor = AppConstants.Color.greenVictory
+
+        case .victoryBySkill:
+            self.skillView.backgroundColor = AppConstants.Color.greenVictory
+
+        case .victoryByOverall:
+            self.overallView.backgroundColor = AppConstants.Color.greenVictory
+
+        case .tie:
+            return
         }
     }
 }
@@ -161,7 +200,7 @@ struct BattleModel {
     let decepticonIntelligence: Int
     let decepticonRank: Int
     let decepticonOverall: Int
-    let battleResult: BattleResultModel
+    let battleResultModel: BattleResultModel
     var oddCell: Bool
 }
 
@@ -170,5 +209,6 @@ struct BattleResultModel {
     let decepticonStatus: String
     let result: String
     let resultColor: UIColor
-    let winningTeam: AppConstants.BusinessLogic.BattleResult
+    let winningTransformerType: AppConstants.BattleResult
+    let victoryCriteria: AppConstants.VictoryCriteria
 }

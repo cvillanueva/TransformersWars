@@ -62,6 +62,16 @@ extension TransformersBattleViewController {
             UINib(nibName: AppConstants.TransformersBattleViewController.battleCellName, bundle: nil),
             forCellReuseIdentifier: AppConstants.TransformersBattleViewController.battleCellName
         )
+
+        battleTableView.register(
+            UINib(nibName: AppConstants.TransformersBattleViewController.autobotBattleSkippedCellName, bundle: nil),
+            forCellReuseIdentifier: AppConstants.TransformersBattleViewController.autobotBattleSkippedCellName
+        )
+
+        battleTableView.register(
+            UINib(nibName: AppConstants.TransformersBattleViewController.decepticonBattleSkippedCellName, bundle: nil),
+            forCellReuseIdentifier: AppConstants.TransformersBattleViewController.decepticonBattleSkippedCellName
+        )
     }
 
     /// To listen changes in the viewmodel
@@ -82,7 +92,24 @@ extension TransformersBattleViewController {
                     ) as! BattleTableViewCell
 
                     cell.setup(model: model)
+                    return cell
 
+                case .autobotSkippedBattleItem(model: let model):
+                    let cell: AutobotBattleSkippedTableViewCell = tableView.dequeueReusableCell(
+                        withIdentifier: AppConstants.TransformersBattleViewController.autobotBattleSkippedCellName,
+                        for: indexPath
+                    ) as! AutobotBattleSkippedTableViewCell
+
+                    cell.setup(model: model)
+                    return cell
+
+                case .decepticonSkippedBattleItem(model: let model):
+                    let cell: DecepticonBattleSkippedTableViewCell = tableView.dequeueReusableCell(
+                        withIdentifier: AppConstants.TransformersBattleViewController.decepticonBattleSkippedCellName,
+                        for: indexPath
+                    ) as! DecepticonBattleSkippedTableViewCell
+
+                    cell.setup(model: model)
                     return cell
                 }
             }
@@ -93,6 +120,17 @@ extension TransformersBattleViewController {
 
 extension TransformersBattleViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return AppConstants.TransformersBattleViewController.battleCellHeight
+
+        guard let section = self.viewModel.battleItems.getElement(at: indexPath.section),
+              let sectionItem = section.items.getElement(at: indexPath.row) else {
+            return AppConstants.TransformersBattleViewController.autobotBattleSkippedCellHeight
+        }
+
+        switch sectionItem {
+        case .battleItem:
+            return AppConstants.TransformersBattleViewController.battleCellHeight
+        case .autobotSkippedBattleItem, .decepticonSkippedBattleItem:
+            return AppConstants.TransformersBattleViewController.autobotBattleSkippedCellHeight
+        }
     }
 }

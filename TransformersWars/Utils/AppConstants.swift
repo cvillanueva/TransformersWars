@@ -14,32 +14,42 @@ class AppConstants {
 
     // MARK: - Business logic
 
+    enum BattleResult {
+        case autobotWon
+        case decepticonWon
+        case tie
+        case allDestroyed
+        case battlesContinue
+    }
+
+    enum TransformerBattleStatus: String {
+        case victory = "Victory"
+        case defeated = "Defeated"
+        case destroyed = "Destroyed"
+    }
+
+    enum VictoryCriteria {
+        case victoryByName
+        case victoryByCourageAndStrength
+        case victoryBySkill
+        case victoryByOverall
+        case tie
+    }
+
     struct BusinessLogic {
+
         static let autobotTeam = "A"
         static let decepticonTeam = "D"
         static let autobotBoss = "Optimus Prime"
         static let decepticonBoss = "Predaking"
-
-        enum BattleResult {
-            case autobotWon
-            case decepticonWon
-            case tie
-            case allDestroyed
-            case battlesContinue
-        }
-
-        enum TransformerBattleStatus: String {
-            case victory = "Victory"
-            case defeated = "Defeated"
-            case destroyed = "Destroyed"
-        }
 
         static let tiedBattleResult = BattleResultModel(
             autobotStatus: empty,
             decepticonStatus: empty,
             result: empty,
             resultColor: UIColor.yellow,
-            winningTeam: BattleResult.battlesContinue
+            winningTransformerType: BattleResult.battlesContinue,
+            victoryCriteria: .tie
         )
     }
 
@@ -92,6 +102,10 @@ class AppConstants {
         static let title = "Battles result"
         static let battleCellName = "BattleTableViewCell"
         static let battleCellHeight: CGFloat = 240
+        static let autobotBattleSkippedCellName = "AutobotBattleSkippedTableViewCell"
+        static let autobotBattleSkippedCellHeight: CGFloat = 60
+        static let decepticonBattleSkippedCellName = "DecepticonBattleSkippedTableViewCell"
+        static let decepticonBattleSkippedCellHeight: CGFloat = 60
     }
 
     struct Fonts {
@@ -112,6 +126,20 @@ class AppConstants {
             red: 67.0/255.0,
             green: 54.0/255.0,
             blue: 117.0/255.0,
+            alpha: 1.0
+        )
+
+        static let greenVictory = UIColor(
+            red: 110.0/255.0,
+            green: 200.0/255.0,
+            blue: 110.0/255.0,
+            alpha: 1.0
+        )
+
+        static let yellowTie = UIColor(
+            red: 247.0/255.0,
+            green: 205.0/255.0,
+            blue: 70.0/255.0,
             alpha: 1.0
         )
 
