@@ -59,6 +59,10 @@ class TransformersListViewController: UIViewController {
 //        self.viewModel.fillTableWithMockData()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        self.enableFightButton()
+    }
+
     // MARK: - UI
 
     /// Sets the controller UI
@@ -86,6 +90,8 @@ class TransformersListViewController: UIViewController {
             for: .normal
         )
         self.navigationItem.backBarButtonItem = backItem
+        self.fightButton.isEnabled = false
+        self.fightButton.setTitleColor(.gray, for: .normal)
     }
 
     /// Shows an error when a error getting the API token happened
@@ -176,6 +182,13 @@ class TransformersListViewController: UIViewController {
         )
         self.navigationController?.pushViewController(transformerEditorViewController, animated: true)
     }
+
+    func enableFightButton() {
+        if self.viewModel.transformersList.count > 0 {
+            self.fightButton.isEnabled = true
+            self.fightButton.setTitleColor(.white, for: .normal)
+        }
+    }
 }
 
 extension TransformersListViewController {
@@ -244,9 +257,10 @@ extension TransformersListViewController {
 
         self.viewModel.output.dissmissFetchingAlert
             .drive(
-                onNext: { [weak self] errorType in
+                onNext: { [weak self] _ in
                     self?.loadingAlert.dismiss(animated: false)
                     self?.fetchingData = false
+                    self?.enableFightButton()
                 }
             ).disposed(by: disposeBag)
     }
@@ -259,6 +273,7 @@ extension TransformersListViewController {
 
                 self.loadingAlert.dismiss(animated: false)
                 self.fetchingData = false
+                self.enableFightButton()
 
                 switch dataSource[indexPath] {
                 case .autobotItem(model: let model):
