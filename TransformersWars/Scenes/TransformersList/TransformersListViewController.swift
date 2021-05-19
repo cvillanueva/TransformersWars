@@ -122,7 +122,7 @@ class TransformersListViewController: UIViewController {
     func showTransformersListRequestErrorAlert(message: String) {
         print("[TransformersListViewController] showTransformersListRequestErrorAlert()")
         self.loadingAlert.dismiss(animated: false, completion: {
-            self.fetchingData = false
+        self.fetchingData = false
 
             let refreshAlert = UIAlertController(
                 title: AppConstants.TransformersListViewController.apiTokenFailedDialogTitle,
@@ -223,20 +223,30 @@ extension TransformersListViewController {
         self.viewModel.output.gotRequestError
             .drive(
                 onNext: { [weak self] errorType in
-                    self?.fetchingData = false
+                    self?.loadingAlert.dismiss(animated: false, completion: {
+                        self?.fetchingData = false
 
-                    switch errorType {
-                    case .apiTokenNetworkIsNotReachable:
-                        self?.showApiTokenRequestErrorAlert(message: errorType.rawValue)
-                    case .apiTokenServerError:
-                        self?.showApiTokenRequestErrorAlert(message: errorType.rawValue)
-                    case .transformersListNetworkIsNotReachable:
-                        self?.showTransformersListRequestErrorAlert(message: errorType.rawValue)
-                    case .transformersListServerError:
-                        self?.showTransformersListRequestErrorAlert(message: errorType.rawValue)
-                    case .transformersListParsingError:
-                        self?.showTransformersListRequestErrorAlert(message: errorType.rawValue)
-                    }
+                        switch errorType {
+                        case .apiTokenNetworkIsNotReachable:
+                            self?.showApiTokenRequestErrorAlert(message: errorType.rawValue)
+                        case .apiTokenServerError:
+                            self?.showApiTokenRequestErrorAlert(message: errorType.rawValue)
+                        case .transformersListNetworkIsNotReachable:
+                            self?.showTransformersListRequestErrorAlert(message: errorType.rawValue)
+                        case .transformersListServerError:
+                            self?.showTransformersListRequestErrorAlert(message: errorType.rawValue)
+                        case .transformersListParsingError:
+                            self?.showTransformersListRequestErrorAlert(message: errorType.rawValue)
+                        }
+                    })
+                }
+            ).disposed(by: disposeBag)
+
+        self.viewModel.output.dissmissFetchingAlert
+            .drive(
+                onNext: { [weak self] errorType in
+                    self?.loadingAlert.dismiss(animated: false)
+                    self?.fetchingData = false
                 }
             ).disposed(by: disposeBag)
     }
@@ -246,11 +256,12 @@ extension TransformersListViewController {
     func dataSource() -> RxTableViewSectionedReloadDataSource<TransformersListSectionModel> {
         let dataSource = RxTableViewSectionedReloadDataSource<TransformersListSectionModel>(
             configureCell: { dataSource, tableView, indexPath, _ -> UITableViewCell in
+
+                self.loadingAlert.dismiss(animated: false)
+                self.fetchingData = false
+
                 switch dataSource[indexPath] {
                 case .autobotItem(model: let model):
-                    self.loadingAlert.dismiss(animated: true)
-                    self.fetchingData = false
-
                     let cell: AutobotTableViewCell = tableView.dequeueReusableCell(
                         withIdentifier: AppConstants.TransformersListViewController.autobotCellName,
                         for: indexPath
@@ -260,9 +271,6 @@ extension TransformersListViewController {
 
                     return cell
                 case .decepticonItem(model: let model):
-                    self.loadingAlert.dismiss(animated: true)
-                    self.fetchingData = false
-
                     let cell: DecepticonTableViewCell = tableView.dequeueReusableCell(
                         withIdentifier: AppConstants.TransformersListViewController.decepticonCellName,
                         for: indexPath

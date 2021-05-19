@@ -21,6 +21,7 @@ class TransformersListViewModel {
     struct Output {
         let transformersItems: Driver<[TransformersListSectionModel]>
         let gotRequestError: Driver<AppConstants.ApiRequestError>
+        let dissmissFetchingAlert: Driver<Bool>
     }
 
     let input: Input
@@ -29,6 +30,7 @@ class TransformersListViewModel {
     // MARK: - Subjects
     let _transformersItems = BehaviorRelay<[TransformersListSectionModel]>(value: [])
     let _gotRequestError = PublishSubject<AppConstants.ApiRequestError>()
+    let _dissmissFetchingAlert = PublishSubject<Bool>()
 
     // MARK: - Sections
 
@@ -51,7 +53,8 @@ class TransformersListViewModel {
         input = Input()
         output = Output(
             transformersItems: _transformersItems.asDriver(),
-            gotRequestError: _gotRequestError.asDriver(onErrorJustReturn: .apiTokenNetworkIsNotReachable)
+            gotRequestError: _gotRequestError.asDriver(onErrorJustReturn: .apiTokenNetworkIsNotReachable),
+            dissmissFetchingAlert: _dissmissFetchingAlert.asDriver(onErrorJustReturn: false)
         )
         transformersItems = [.transformersListSection(title: AppConstants.empty, items: [])]
     }
@@ -185,6 +188,7 @@ extension TransformersListViewModel: RequestTransformersListProtocol {
     }
 
     func receivedData(transformersList: [Transformer]) {
+        self._dissmissFetchingAlert.onNext(true)
         self.transformersList = transformersList
         showList(transformersList: transformersList)
     }
