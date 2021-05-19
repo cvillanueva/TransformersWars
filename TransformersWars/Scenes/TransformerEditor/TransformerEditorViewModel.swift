@@ -101,10 +101,10 @@ class TransformerEditorViewModel {
 
         if value == 0 {
             print("[TransformerEditorViewModel] transformerTypeSegmentedControlChanged() AUTOBOT")
-            self.transformerModel.team = "A"
+            self.transformerModel.team = AppConstants.BusinessLogic.autobotTeam
         } else {
             print("[TransformerEditorViewModel] transformerTypeSegmentedControlChanged() DECEPTICON")
-            self.transformerModel.team = "D"
+            self.transformerModel.team = AppConstants.BusinessLogic.decepticonTeam
         }
 
     }

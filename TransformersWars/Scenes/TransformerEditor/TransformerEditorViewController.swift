@@ -123,7 +123,7 @@ class TransformerEditorViewController: UIViewController {
         self.firepowerSlider.value = Float(self.model.firepower)
         self.skillSlider.value = Float(self.model.skill)
 
-        if self.model.team == "A" {
+        if self.model.team == AppConstants.BusinessLogic.autobotTeam {
             self.transformerTypeSegmentedControl.selectedSegmentIndex = 0
             setAppColor(color: AppConstants.Color.redAutobot)
         } else {

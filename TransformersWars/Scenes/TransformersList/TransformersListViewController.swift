@@ -15,6 +15,7 @@ import UIKit
 class TransformersListViewController: UIViewController {
 
     // MARK: - Widgets
+
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var fightButton: UIButton!
     @IBOutlet weak var bottomStackView: UIStackView!
@@ -121,6 +122,13 @@ class TransformersListViewController: UIViewController {
 
     @IBAction func addButtonTapped(_ sender: Any) {
         self.pushTransformerEditor(operation: .create)
+    }
+
+    @IBAction func fightButtonTapped(_ sender: Any) {
+        let transformersBattleViewController = TransformersBattleViewController(
+            transformersList: self.viewModel.transformersList
+        )
+        self.navigationController?.pushViewController(transformersBattleViewController, animated: true)
     }
 
     func pushTransformerEditor(

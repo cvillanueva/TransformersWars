@@ -12,7 +12,39 @@ import UIKit
 
 class AppConstants {
 
+    // MARK: - Business logic
+
+    struct BusinessLogic {
+        static let autobotTeam = "A"
+        static let decepticonTeam = "D"
+        static let autobotBoss = "Optimus Prime"
+        static let decepticonBoss = "Predaking"
+
+        enum BattleResult {
+            case autobotWon
+            case decepticonWon
+            case tie
+            case allDestroyed
+            case battlesContinue
+        }
+
+        enum TransformerBattleStatus: String {
+            case victory = "Victory"
+            case defeated = "Defeated"
+            case destroyed = "Destroyed"
+        }
+
+        static let tiedBattleResult = BattleResultModel(
+            autobotStatus: empty,
+            decepticonStatus: empty,
+            result: empty,
+            resultColor: UIColor.yellow,
+            winningTeam: BattleResult.battlesContinue
+        )
+    }
+
     // MARK: - Networking
+
     struct Networking {
         static let tokenURL = "https://transformers-api.firebaseapp.com/allspark"
         static let apiURL = "https://transformers-api.firebaseapp.com/transformers"
@@ -34,15 +66,17 @@ class AppConstants {
     }
 
     // MARK: - Storage
+
     struct StorageKey {
         static let apiToken = "apiToken"
     }
 
     // MARK: - UI
     // (For bigger projects I prefer to use localized strings, Swiftgen)
+
     struct TransformersListViewController {
         static let title = "Transformers Wars!"
-        static let backButtonTitle = "Back to list"
+        static let backButtonTitle = "Back"
         static let autobotCellName = "AutobotTableViewCell"
         static let decepticonCellName = "DecepticonTableViewCell"
         static let transformerCellHeight: CGFloat = 109
@@ -52,6 +86,12 @@ class AppConstants {
     struct TransformerEditorViewController {
         static let actionButtonTitleCreate = "Create new transformer"
         static let actionButtonTitleUpdate = "Update transformer"
+    }
+
+    struct TransformersBattleViewController {
+        static let title = "Battles result"
+        static let battleCellName = "BattleTableViewCell"
+        static let battleCellHeight: CGFloat = 240
     }
 
     struct Fonts {
@@ -86,7 +126,7 @@ class AppConstants {
     }
 
     static let emptyTransformer = Transformer(
-        identifier: "no_id",
+        identifier: noID,
         name: empty,
         strength: 1,
         intelligence: 1,
@@ -96,11 +136,12 @@ class AppConstants {
         courage: 1,
         firepower: 1,
         skill: 1,
-        team: "A",
+        team: BusinessLogic.autobotTeam,
         teamIcon: empty,
         oddCell: false
     )
 
+    static let noID = "no_id"
     static let empty = ""
     static let buttonOk = "Ok"
     static let buttonCancel = "Cancel"

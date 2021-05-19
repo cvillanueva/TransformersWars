@@ -25,8 +25,8 @@ class RequestTransformerCreation {
         request(apiToken: apiToken, model: model)
     }
 
-    private func request(apiToken: String, model: Transformer) {
-        let params: Parameters = [
+    private func getParameters(model: Transformer) -> Parameters {
+        let parameters: Parameters = [
             "name": model.name,
             "strength": model.strength,
             "intelligence": model.intelligence,
@@ -38,17 +38,24 @@ class RequestTransformerCreation {
             "skill": model.skill,
             "team": model.team
         ]
+        return parameters
+    }
+
+    private func request(apiToken: String, model: Transformer) {
+        let parameters = getParameters(model: model)
 
         if NetworkReachabilityManager()!.isReachable {
             AF.request(
                 AppConstants.Networking.apiURL,
                 method: .post,
-                parameters: params,
+                parameters: parameters,
                 encoding: JSONEncoding.default,
                 headers: [.authorization(bearerToken: apiToken)]
             ).validate(statusCode: 200 ..< 299).responseJSON { AFdata in
                 do {
-                    guard let jsonObject = try JSONSerialization.jsonObject(with: AFdata.data!) as? [String: Any] else {
+                    guard let jsonObject = try JSONSerialization.jsonObject(
+                            with: AFdata.data ?? Data()
+                    ) as? [String: Any] else {
                         print("[RequestTransformerCreation] Error converting data to JSON object")
                         if let delegate = self.delegate {
                             delegate.serverErrorHappened(errorType: .transformerCreationError)
@@ -56,7 +63,10 @@ class RequestTransformerCreation {
                         return
                     }
 
-                    guard let prettyJsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted) else {
+                    guard let prettyJsonData = try? JSONSerialization.data(
+                            withJSONObject: jsonObject,
+                            options: .prettyPrinted
+                    ) else {
                         print("[RequestTransformerCreation] Error converting JSON object to Pretty JSON data")
                         if let delegate = self.delegate {
                             delegate.serverErrorHappened(errorType: .transformerCreationError)

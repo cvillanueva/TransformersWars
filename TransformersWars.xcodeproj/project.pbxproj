@@ -34,6 +34,11 @@
 		F05D345E26506CF500020B02 /* AutobotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D345C26506CF500020B02 /* AutobotTableViewCell.swift */; };
 		F05D345F26506CF500020B02 /* AutobotTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F05D345D26506CF500020B02 /* AutobotTableViewCell.xib */; };
 		F05D346226507E4700020B02 /* TransformersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D346126507E4700020B02 /* TransformersResponse.swift */; };
+		F0C0AB4726544DA5000B57BC /* TransformersBattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C0AB4526544DA5000B57BC /* TransformersBattleViewController.swift */; };
+		F0C0AB4826544DA5000B57BC /* TransformersBattleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0C0AB4626544DA5000B57BC /* TransformersBattleViewController.xib */; };
+		F0C0AB4A26544DC5000B57BC /* TransformersBattleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C0AB4926544DC5000B57BC /* TransformersBattleViewModel.swift */; };
+		F0C0AB4E265455D4000B57BC /* BattleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C0AB4C265455D4000B57BC /* BattleTableViewCell.swift */; };
+		F0C0AB4F265455D4000B57BC /* BattleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0C0AB4D265455D4000B57BC /* BattleTableViewCell.xib */; };
 		F0C10EE02652FAF400831A6B /* RequestTransformerCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C10EDF2652FAF400831A6B /* RequestTransformerCreation.swift */; };
 		F0C10EE2265336CB00831A6B /* RequestTransformerUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C10EE1265336CB00831A6B /* RequestTransformerUpdate.swift */; };
 		F0C10EE42653478F00831A6B /* RequestTransformerDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C10EE32653478F00831A6B /* RequestTransformerDelete.swift */; };
@@ -94,6 +99,11 @@
 		F05D345C26506CF500020B02 /* AutobotTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutobotTableViewCell.swift; sourceTree = "<group>"; };
 		F05D345D26506CF500020B02 /* AutobotTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AutobotTableViewCell.xib; sourceTree = "<group>"; };
 		F05D346126507E4700020B02 /* TransformersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformersResponse.swift; sourceTree = "<group>"; };
+		F0C0AB4526544DA5000B57BC /* TransformersBattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformersBattleViewController.swift; sourceTree = "<group>"; };
+		F0C0AB4626544DA5000B57BC /* TransformersBattleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransformersBattleViewController.xib; sourceTree = "<group>"; };
+		F0C0AB4926544DC5000B57BC /* TransformersBattleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformersBattleViewModel.swift; sourceTree = "<group>"; };
+		F0C0AB4C265455D4000B57BC /* BattleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleTableViewCell.swift; sourceTree = "<group>"; };
+		F0C0AB4D265455D4000B57BC /* BattleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BattleTableViewCell.xib; sourceTree = "<group>"; };
 		F0C10EDF2652FAF400831A6B /* RequestTransformerCreation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTransformerCreation.swift; sourceTree = "<group>"; };
 		F0C10EE1265336CB00831A6B /* RequestTransformerUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTransformerUpdate.swift; sourceTree = "<group>"; };
 		F0C10EE32653478F00831A6B /* RequestTransformerDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTransformerDelete.swift; sourceTree = "<group>"; };
@@ -215,6 +225,7 @@
 		F05D34432650296400020B02 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				F0C0AB4426544D39000B57BC /* TransformersBattle */,
 				F02175B92651DED00067F966 /* TransformerEditor */,
 				F05D344E2650314400020B02 /* TransformersList */,
 			);
@@ -282,6 +293,26 @@
 				F0C10EE32653478F00831A6B /* RequestTransformerDelete.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		F0C0AB4426544D39000B57BC /* TransformersBattle */ = {
+			isa = PBXGroup;
+			children = (
+				F0C0AB4B265455B4000B57BC /* Cells */,
+				F0C0AB4526544DA5000B57BC /* TransformersBattleViewController.swift */,
+				F0C0AB4626544DA5000B57BC /* TransformersBattleViewController.xib */,
+				F0C0AB4926544DC5000B57BC /* TransformersBattleViewModel.swift */,
+			);
+			path = TransformersBattle;
+			sourceTree = "<group>";
+		};
+		F0C0AB4B265455B4000B57BC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F0C0AB4C265455D4000B57BC /* BattleTableViewCell.swift */,
+				F0C0AB4D265455D4000B57BC /* BattleTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,6 +423,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0C0AB4F265455D4000B57BC /* BattleTableViewCell.xib in Resources */,
+				F0C0AB4826544DA5000B57BC /* TransformersBattleViewController.xib in Resources */,
 				F05D34472650297900020B02 /* TransformersListViewController.xib in Resources */,
 				F05D34542650378500020B02 /* Optimus-Bold.otf in Resources */,
 				F02175BD2651DEFA0067F966 /* TransformerEditorViewController.xib in Resources */,
@@ -527,6 +560,7 @@
 				F05D34462650297900020B02 /* TransformersListViewController.swift in Sources */,
 				F02175BF2651F4230067F966 /* TransformerEditorViewModel.swift in Sources */,
 				F05D346226507E4700020B02 /* TransformersResponse.swift in Sources */,
+				F0C0AB4E265455D4000B57BC /* BattleTableViewCell.swift in Sources */,
 				F05D34132650266B00020B02 /* AppDelegate.swift in Sources */,
 				F05D344D2650313F00020B02 /* TransformersListViewModel.swift in Sources */,
 				F05D345A2650518D00020B02 /* AppStorage.swift in Sources */,
@@ -535,9 +569,11 @@
 				F0C10EE2265336CB00831A6B /* RequestTransformerUpdate.swift in Sources */,
 				F02175BC2651DEFA0067F966 /* TransformerEditorViewController.swift in Sources */,
 				F05D34152650266B00020B02 /* SceneDelegate.swift in Sources */,
+				F0C0AB4A26544DC5000B57BC /* TransformersBattleViewModel.swift in Sources */,
 				F02175B82651CDF00067F966 /* RequestTransformersList.swift in Sources */,
 				F05D345E26506CF500020B02 /* AutobotTableViewCell.swift in Sources */,
 				F02175B62651A9220067F966 /* RequestApiToken.swift in Sources */,
+				F0C0AB4726544DA5000B57BC /* TransformersBattleViewController.swift in Sources */,
 				F0C10EE42653478F00831A6B /* RequestTransformerDelete.swift in Sources */,
 				F05D344A26502B8500020B02 /* AppConstants.swift in Sources */,
 				F02175B3265168320067F966 /* DecepticonTableViewCell.swift in Sources */,
