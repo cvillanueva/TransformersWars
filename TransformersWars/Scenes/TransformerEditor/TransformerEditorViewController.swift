@@ -79,6 +79,7 @@ class TransformerEditorViewController: UIViewController {
 
     // MARK: - UI
 
+    /// Sets the controller UI
     func setupUI() {
         self.actionButton.layer.cornerRadius = 10
         self.actionButton.titleLabel?.font = .optimus(size: 20)
@@ -111,6 +112,7 @@ class TransformerEditorViewController: UIViewController {
         }
     }
 
+    /// Set the fields with the given values
     func setFields() {
         self.nameTextField.text = self.model.name
 
@@ -123,7 +125,7 @@ class TransformerEditorViewController: UIViewController {
         self.firepowerSlider.value = Float(self.model.firepower)
         self.skillSlider.value = Float(self.model.skill)
 
-        if self.model.team == "A" {
+        if self.model.team == AppConstants.BusinessLogic.autobotTeam {
             self.transformerTypeSegmentedControl.selectedSegmentIndex = 0
             setAppColor(color: AppConstants.Color.redAutobot)
         } else {
@@ -132,6 +134,8 @@ class TransformerEditorViewController: UIViewController {
         }
     }
 
+    /// Sets the sliders color
+    /// - Parameter color: <#color description#>
     func setSlidersTintColor(color: UIColor) {
         self.strengthSlider.tintColor = color
         self.intelligenceSlider.tintColor = color
@@ -143,6 +147,8 @@ class TransformerEditorViewController: UIViewController {
         self.skillSlider.tintColor = color
     }
 
+    /// Triggered when the transformer type is changed
+    /// - Parameter sender: Sender
     @IBAction func transformerTypeChanged(_ sender: Any) {
         if self.transformerTypeSegmentedControl.selectedSegmentIndex == 0 {
             setAppColor(color: AppConstants.Color.redAutobot)
@@ -151,14 +157,18 @@ class TransformerEditorViewController: UIViewController {
         }
     }
 
+    /// Sets the Apps UI color
+    /// - Parameter color: <#color description#>
     func setAppColor(color: UIColor) {
         self.setSlidersTintColor(color: color)
-        self.setActionButtonColor(color: color)
+        self.setActionButton(color: color)
         self.parentController.color = color
         self.parentController.setupUI()
     }
 
-    func setActionButtonColor(color: UIColor) {
+    /// Sets the action button state
+    /// - Parameter color: State color
+    func setActionButton(color: UIColor) {
         if self.nameTextField.text?.count ?? 0 > 0 {
             self.actionButton.isEnabled = true
             self.actionButton.backgroundColor = color
@@ -168,6 +178,8 @@ class TransformerEditorViewController: UIViewController {
         }
     }
 
+    /// Shows an alert when the update network calling fails
+    /// - Parameter message: An error message
     func showTransformerCreationErrorAlert(message: String) {
         print("[TransformersListViewController] showTransformerCreationErrorAlert()")
         let refreshAlert = UIAlertController(
@@ -189,6 +201,7 @@ class TransformerEditorViewController: UIViewController {
         present(refreshAlert, animated: true, completion: nil)
     }
 
+    /// Triggered when the delete button is tapped
     @objc func deleteButtonTapped() {
         print("[TransformersListViewController] deleteButtonTapped()")
         self.viewModel.deleteButtonTapped()
@@ -333,14 +346,23 @@ extension TransformerEditorViewController {
 }
 
 extension TransformerEditorViewController: UITextFieldDelegate {
+    /// Triggered when the edition ends
+    /// - Parameter textField: The associated textField
     func textFieldDidEndEditing(_ textField: UITextField) {
-        setActionButtonColor(color: parentController.color)
+        setActionButton(color: parentController.color)
     }
 
+    /// Triggered when return key is pressed
+    /// - Parameter textField: The associated textField
+    /// - Returns: The action to perform
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return textField.resignFirstResponder()
     }
 
+    /// Triggered when any spot in the screen is touched less the textField
+    /// - Parameters:
+    ///   - touches: The touch
+    ///   - event: The event
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }

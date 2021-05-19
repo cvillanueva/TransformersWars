@@ -7,9 +7,12 @@
 
 import Foundation
 
+/// Some functions to store data locally
 class AppStorage {
+
     /// Stores a API token to local storage
     /// - Parameter token: API token value
+    // I know is better to use the keychain to store sensitive data, but for simplicity just used UserDefaults
     static func storeApiToken(token: String) {
         print("[AppStorage] storeToken() token:\(token)")
         let userDefaults = UserDefaults.standard

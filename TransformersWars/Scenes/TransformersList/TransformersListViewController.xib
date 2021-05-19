@@ -51,6 +51,9 @@
                             <state key="normal" title="Fight!">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="fightButtonTapped:" destination="-1" eventType="touchUpInside" id="4Fq-bH-l0y"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemRedColor"/>

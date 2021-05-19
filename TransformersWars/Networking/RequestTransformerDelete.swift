@@ -25,6 +25,7 @@ class RequestTransformerDelete {
         request(apiToken: apiToken, model: model)
     }
 
+    /// Performs an Alamofire request
     private func request(apiToken: String, model: Transformer) {
         let url = "\(AppConstants.Networking.apiURL)/\(model.identifier)"
         print("[RequestTransformerDeleteProtocol] request() url:\(url)")

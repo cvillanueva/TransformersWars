@@ -24,6 +24,7 @@ class AutobotTableViewCell: UITableViewCell {
     @IBOutlet weak var leftViewWidthConstraint: NSLayoutConstraint!
 
     // MARK: - Cell Life Cycle
+
     override func awakeFromNib() {
         super.awakeFromNib()
         self.setupUI()

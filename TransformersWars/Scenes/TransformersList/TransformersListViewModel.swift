@@ -58,7 +58,7 @@ class TransformersListViewModel {
 
     func fillTableWithMockData() {
         let autobot = Transformer(
-            identifier: "no_id",
+            identifier: AppConstants.noID,
             name: "Inferno",
             strength: 5,
             intelligence: 6,
@@ -68,12 +68,12 @@ class TransformersListViewModel {
             courage: 10,
             firepower: 9,
             skill: 8,
-            team: "A",
+            team: AppConstants.BusinessLogic.autobotTeam,
             teamIcon: "no_icon"
         )
 
         let decepticon = Transformer(
-            identifier: "no_id",
+            identifier: AppConstants.noID,
             name: "Starscream",
             strength: 5,
             intelligence: 6,
@@ -83,7 +83,7 @@ class TransformersListViewModel {
             courage: 10,
             firepower: 9,
             skill: 8,
-            team: "D",
+            team: AppConstants.BusinessLogic.decepticonTeam,
             teamIcon: "no_icon"
         )
 
@@ -102,7 +102,7 @@ class TransformersListViewModel {
             print("[TransformersListViewModel] showList() model.identifier:\(model.identifier)")
             model.oddCell = oddCounter % 2 == 0
 
-            if transformer.team == "A" {
+            if transformer.team == AppConstants.BusinessLogic.autobotTeam {
                 currentTransformersItems.append(.autobotItem(model: model))
             } else {
                 currentTransformersItems.append(.decepticonItem(model: model))
@@ -185,6 +185,7 @@ extension TransformersListViewModel: RequestTransformersListProtocol {
     }
 
     func receivedData(transformersList: [Transformer]) {
+        self.transformersList = transformersList
         showList(transformersList: transformersList)
     }
 }
