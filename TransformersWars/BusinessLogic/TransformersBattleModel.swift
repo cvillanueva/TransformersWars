@@ -52,6 +52,8 @@ class TransformersBattleModel {
 
         if !checkGameResultAllDestroyed(autobotsList: autobotsList, decepticonsList: decepticonsList) {
 
+            var numberOfBattles = 0
+
             for index in 0...longerCount - 1 {
                 let autobot = getTransformerFromList(transformersList: autobotsList, index: index)
                 let decepticon = getTransformerFromList(transformersList: decepticonsList, index: index)
@@ -76,16 +78,19 @@ class TransformersBattleModel {
                         generalResult.autobotsVictories += 1
                         generalResult.decepticonsDefeats += 1
                         generalResult.autobotsSurvivors += 1
+                        numberOfBattles += 1
 
                     } else if battleModel.battleResultModel.winningTransformerType == .decepticonWon &&
                                 battleModel.autobotName != AppConstants.empty {
                         generalResult.decepticonsVictories += 1
                         generalResult.autobotsDefeats += 1
                         generalResult.decepticonsSurvivors += 1
+                        numberOfBattles += 1
 
                     } else if battleModel.battleResultModel.winningTransformerType == .tie {
                         generalResult.autobotsTies += 1
                         generalResult.decepticonsTies += 1
+                        numberOfBattles += 1
 
                     } else if battleModel.decepticonName == AppConstants.empty {
                         generalResult.autobotsSurvivors += 1
@@ -96,6 +101,8 @@ class TransformersBattleModel {
                 }
                 battleList.append(battleModel)
             }
+
+            generalResult.numberOfBattles = numberOfBattles
 
         } else {
             generalResult.winningTeam = .allDestroyed

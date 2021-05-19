@@ -11,6 +11,7 @@ class GeneralResultTableViewCell: UITableViewCell {
 
     // MARK: - Widgets
 
+    @IBOutlet weak var numberOfBattlesLabel: UILabel!
     @IBOutlet weak var teamResultLabel: UILabel!
 
     @IBOutlet weak var autobotsVictoriesLabel: UILabel!
@@ -37,7 +38,7 @@ class GeneralResultTableViewCell: UITableViewCell {
     /// - Parameter model: A general result model object
     func setup(model: GeneralResultModel) {
 
-        self.teamResultLabel.text = "Number of battles: \(model.numberOfBattles)"
+        self.numberOfBattlesLabel.text = "Number of battles: \(model.numberOfBattles)"
 
         self.autobotsVictoriesLabel.text = String(model.autobotsVictories)
         self.autobotsDefeatsLabel.text = String(model.autobotsDefeats)

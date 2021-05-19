@@ -9,7 +9,6 @@ import Foundation
 import RxCocoa
 import RxDataSources
 import RxSwift
-import Action
 
 // swiftlint:disable identifier_name
 

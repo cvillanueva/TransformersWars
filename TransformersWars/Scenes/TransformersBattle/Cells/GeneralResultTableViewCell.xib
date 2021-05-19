@@ -281,6 +281,7 @@
                 <outlet property="decepticonsSurvivorsLabel" destination="X9d-UC-rYq" id="KX4-xi-lqb"/>
                 <outlet property="decepticonsTiesLabel" destination="AgP-R4-Oth" id="slD-c3-LWv"/>
                 <outlet property="decepticonsVictoriesLabel" destination="J0j-sh-lJa" id="fT8-5h-xVv"/>
+                <outlet property="numberOfBattlesLabel" destination="hH8-DE-E9E" id="a9e-dO-czH"/>
                 <outlet property="teamResultLabel" destination="Bqg-7J-W6w" id="QPG-hc-zNy"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="126.5625"/>

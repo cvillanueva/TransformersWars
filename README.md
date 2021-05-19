@@ -19,4 +19,4 @@ Then open TransformersWars.xcworkspace file.
 - When an autobot wins a battle, the result message at the bottom of the cell is painted red.
 - When a decepticon wins a battle, the result message at the bottom of the cell is painted purple.
 - When a tie happens, the result message at the bottom of the cell is painted yellow.
-- When a massive destruction happes, the result message at the bottom of the cell is painted blue.
+- When a massive destruction happens, the result message at the bottom of the cell is painted blue.
