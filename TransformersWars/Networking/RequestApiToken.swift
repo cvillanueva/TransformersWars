@@ -25,6 +25,7 @@ class RequestApiToken {
         request()
     }
 
+    /// Performs an Alamofire request
     private func request() {
         var urlRequest = URLRequest(
             url: URL(string: AppConstants.Networking.tokenURL)!

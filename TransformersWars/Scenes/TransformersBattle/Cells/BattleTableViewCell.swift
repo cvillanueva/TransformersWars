@@ -179,6 +179,7 @@ class BattleTableViewCell: UITableViewCell {
     }
 }
 
+/// A struct to handle the battle data
 struct BattleModel {
     let autobotName: String
     let decepticonName: String
@@ -204,6 +205,7 @@ struct BattleModel {
     var oddCell: Bool
 }
 
+/// A struct to handle the battle result data
 struct BattleResultModel {
     let autobotStatus: String
     let decepticonStatus: String

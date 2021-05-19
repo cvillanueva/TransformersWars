@@ -10,6 +10,7 @@ import Foundation
 // swiftlint:disable function_body_length
 // swiftlint:disable cyclomatic_complexity
 // swiftlint:disable type_body_length
+// swiftlint:disable file_length
 
 /// Business Logic
 class TransformersBattleModel {
@@ -20,6 +21,8 @@ class TransformersBattleModel {
         self.transformersList = transformersList
     }
 
+    /// Performs the business logic
+    /// - Returns: A list of objects with the battle results and the general result
     func execBattle() -> ([BattleModel], GeneralResultModel) {
         var generalResult = AppConstants.emptyGeneralResult
 
@@ -112,6 +115,11 @@ class TransformersBattleModel {
         return (battleList, generalResult)
     }
 
+    /// Returns a valid or empty transformer if the index is out of range
+    /// - Parameters:
+    ///   - transformersList: The list to loop
+    ///   - index: The index
+    /// - Returns: A transformer
     func getTransformerFromList(transformersList: [Transformer], index: Int) -> Transformer {
         if index < transformersList.count {
             return transformersList[index]
@@ -120,6 +128,11 @@ class TransformersBattleModel {
         }
     }
 
+    /// Returns the result of a battle between an autobot and a decepticon
+    /// - Parameters:
+    ///   - autobot: The autobot
+    ///   - decepticon: The decepticon
+    /// - Returns: A battle model object
     func getBattle(autobot: Transformer, decepticon: Transformer) -> BattleModel {
 
         let autobotOverall = autobot.courage + autobot.strength + autobot.skill + autobot.speed +
@@ -185,6 +198,11 @@ class TransformersBattleModel {
         )
     }
 
+    /// Checks the special rule about boss names
+    /// - Parameters:
+    ///   - autobot: The autobot
+    ///   - decepticon: The decepticon
+    /// - Returns: The result, that can be autobot or decepticon victory, all destroyed or the battle continues
     func checkTransformersName(
         autobot: Transformer,
         decepticon: Transformer
@@ -208,6 +226,11 @@ class TransformersBattleModel {
         }
     }
 
+    /// The result of a battle depending on the special rule about boss names
+    /// - Parameters:
+    ///   - autobot: The autobot
+    ///   - decepticon: The decepticon
+    /// - Returns: A battle result model object
     func getBattleResultByName(autobot: Transformer, decepticon: Transformer) -> BattleResultModel {
         let resultByName = checkTransformersName(autobot: autobot, decepticon: decepticon)
 
@@ -246,6 +269,11 @@ class TransformersBattleModel {
         }
     }
 
+    /// The result of a battle depending on the courage and strength criteria
+    /// - Parameters:
+    ///   - autobot: The autobot
+    ///   - decepticon: The decepticon
+    /// - Returns: A battle result model object
     func getBattleResultByCourageAndStrength(autobot: Transformer, decepticon: Transformer) -> BattleResultModel {
         let autobotCourageDifference = autobot.courage - decepticon.courage
         let autobotStrengthDifference = autobot.strength - decepticon.strength
@@ -278,6 +306,11 @@ class TransformersBattleModel {
         }
     }
 
+    /// The result of a battle depending on the skill criteria
+    /// - Parameters:
+    ///   - autobot: The autobot
+    ///   - decepticon: The decepticon
+    /// - Returns: A battle result model object
     func getBattleResultBySkill(autobot: Transformer, decepticon: Transformer) -> BattleResultModel {
         let autobotSkillDifference = autobot.skill - decepticon.skill
         let decepticonSkillDifference = decepticon.skill - autobot.skill
@@ -307,6 +340,11 @@ class TransformersBattleModel {
         }
     }
 
+    /// The result of a battle depending on the overall criteria
+    /// - Parameters:
+    ///   - autobot: The autobot
+    ///   - decepticon: The decepticon
+    /// - Returns: A battle result model object
     func getBattleResultByOverall(
         autobot: Transformer,
         decepticon: Transformer,
@@ -343,6 +381,11 @@ class TransformersBattleModel {
         }
     }
 
+    /// Checks in a preliminary way if all the transformers will result destroyed
+    /// - Parameters:
+    ///   - autobotsList: The autobots list
+    ///   - decepticonsList: The decepticons list
+    /// - Returns: A boolean indicating if there is mass destruction
     func checkGameResultAllDestroyed(autobotsList: [Transformer], decepticonsList: [Transformer]) -> Bool {
         var longerCount = autobotsList.count
         if decepticonsList.count > autobotsList.count { longerCount = decepticonsList.count }
@@ -361,6 +404,8 @@ class TransformersBattleModel {
         return false
     }
 
+    /// Prints a list of transformers to the console
+    /// - Parameter transformersList: <#transformersList description#>
     func printTransformersList(_ transformersList: [Transformer]) {
         print("===================================")
         for transformer in transformersList {

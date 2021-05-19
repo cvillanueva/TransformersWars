@@ -25,6 +25,7 @@ class RequestTransformerUpdate {
         request(apiToken: apiToken, model: model)
     }
 
+    // Build the parameters to request the API
     private func buildParameters(model: Transformer) -> Parameters {
         let params: Parameters = [
             "id": model.identifier,
@@ -43,6 +44,7 @@ class RequestTransformerUpdate {
         return params
     }
 
+    /// Performs an Alamofire request
     private func request(apiToken: String, model: Transformer) {
         let params = buildParameters(model: model)
         print("[RequestTransformerUpdate] params:\(params)")

@@ -10,6 +10,7 @@ import UIKit
 
 // swiftlint:disable line_length
 
+/// The applications constants
 class AppConstants {
 
     // MARK: - Business logic
@@ -135,6 +136,7 @@ class AppConstants {
         static let decepticonCellName = "DecepticonTableViewCell"
         static let transformerCellHeight: CGFloat = 109
         static let apiTokenFailedDialogTitle = "Ooops!"
+        static let fetchingAlertMessage = "Fetching data"
     }
 
     struct TransformerEditorViewController {

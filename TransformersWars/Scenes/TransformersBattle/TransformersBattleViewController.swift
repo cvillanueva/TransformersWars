@@ -46,6 +46,7 @@ class TransformersBattleViewController: UIViewController {
 
     // MARK: - UI
 
+    /// Setup controller's UI
     func setupUI() {
         self.title = AppConstants.TransformersBattleViewController.title
     }
@@ -86,6 +87,8 @@ extension TransformersBattleViewController {
             .disposed(by: disposeBag)
     }
 
+    /// Returns cells depending on the logic executed in the view model
+    /// - Returns: A section model
     func dataSource() -> RxTableViewSectionedReloadDataSource<BattlesListSectionModel> {
         let dataSource = RxTableViewSectionedReloadDataSource<BattlesListSectionModel>(
             configureCell: { dataSource, tableView, indexPath, _ -> UITableViewCell in
@@ -132,7 +135,13 @@ extension TransformersBattleViewController {
     }
 }
 
+/// Extension to implements the UITableViewDelegate protocol
 extension TransformersBattleViewController: UITableViewDelegate {
+    /// To define the height of shown cells
+    /// - Parameters:
+    ///   - tableView: The controller's tableview
+    ///   - indexPath: Returned indexPath
+    /// - Returns: The cell height
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
         guard let section = self.viewModel.battleItems.getElement(at: indexPath.section),

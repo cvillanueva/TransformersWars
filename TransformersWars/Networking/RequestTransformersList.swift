@@ -25,6 +25,7 @@ class RequestTransformersList {
         request(apiToken: apiToken)
     }
 
+    /// Performs an Alamofire request
     private func request(apiToken: String) {
         var urlRequest = URLRequest(
             url: URL(string: AppConstants.Networking.apiURL)!

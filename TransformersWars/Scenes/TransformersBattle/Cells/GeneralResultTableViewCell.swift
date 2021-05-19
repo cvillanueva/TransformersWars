@@ -34,7 +34,7 @@ class GeneralResultTableViewCell: UITableViewCell {
     }
 
     /// Setup cell data
-    /// - Parameter model: Data model with the info
+    /// - Parameter model: A general result model object
     func setup(model: GeneralResultModel) {
 
         self.teamResultLabel.text = "Number of battles: \(model.numberOfBattles)"
@@ -72,6 +72,7 @@ class GeneralResultTableViewCell: UITableViewCell {
     }
 }
 
+/// Struct to handle the general result data
 struct GeneralResultModel {
     var numberOfBattles: Int
     var autobotsVictories: Int

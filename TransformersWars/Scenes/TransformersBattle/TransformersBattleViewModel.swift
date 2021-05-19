@@ -52,6 +52,7 @@ class TransformersBattleViewModel {
         battleItems = [.battleListSection(title: AppConstants.empty, items: [])]
     }
 
+    /// Displays mock data
     func fillTableWithMockData() {
         let battle1 = BattleModel(
             autobotName: "Potatobot", decepticonName: "Plastatron",
@@ -91,6 +92,10 @@ class TransformersBattleViewModel {
         showList(battleList: battleList, generalResultParam: AppConstants.emptyGeneralResult)
     }
 
+    /// Shows a list of battle results and a general result
+    /// - Parameters:
+    ///   - battleList: List of battle results
+    ///   - generalResultParam: General result
     func showList(battleList: [BattleModel], generalResultParam: GeneralResultModel) {
         print("[BattlesListViewModel] showList()")
         var generalResult = generalResultParam
@@ -129,6 +134,7 @@ class TransformersBattleViewModel {
         battleItems[0] = section
     }
 
+    /// Starts the game
     func startBattle() {
         let transformersBattleModel = TransformersBattleModel(transformersList: transformersList)
         let (battleList, generalResult) = transformersBattleModel.execBattle()
@@ -141,6 +147,7 @@ enum BattlesListSectionModel {
     case battleListSection(title: String, items: [BattleItem])
 }
 
+/// Items types
 enum BattleItem {
     case battleItem(model: BattleModel)
     case autobotSkippedBattleItem(model: BattleModel)

@@ -12,7 +12,7 @@ struct TransformersList: Codable {
     let transformers: [Transformer]
 }
 
-/// <#Description#>
+/// An struct the transformer data requested from API
 struct Transformer: Codable {
     let identifier: String
     var name: String

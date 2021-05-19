@@ -20,7 +20,6 @@
 		F05D34152650266B00020B02 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D34142650266B00020B02 /* SceneDelegate.swift */; };
 		F05D341C2650266C00020B02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05D341B2650266C00020B02 /* Assets.xcassets */; };
 		F05D341F2650266C00020B02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F05D341D2650266C00020B02 /* LaunchScreen.storyboard */; };
-		F05D342A2650266C00020B02 /* TransformersWarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D34292650266C00020B02 /* TransformersWarsTests.swift */; };
 		F05D34352650266C00020B02 /* TransformersWarsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D34342650266C00020B02 /* TransformersWarsUITests.swift */; };
 		F05D34462650297900020B02 /* TransformersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D34442650297900020B02 /* TransformersListViewController.swift */; };
 		F05D34472650297900020B02 /* TransformersListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F05D34452650297900020B02 /* TransformersListViewController.xib */; };
@@ -90,7 +89,6 @@
 		F05D341E2650266C00020B02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F05D34202650266C00020B02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F05D34252650266C00020B02 /* TransformersWarsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransformersWarsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F05D34292650266C00020B02 /* TransformersWarsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformersWarsTests.swift; sourceTree = "<group>"; };
 		F05D342B2650266C00020B02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F05D34302650266C00020B02 /* TransformersWarsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransformersWarsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F05D34342650266C00020B02 /* TransformersWarsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformersWarsUITests.swift; sourceTree = "<group>"; };
@@ -224,7 +222,6 @@
 		F05D34282650266C00020B02 /* TransformersWarsTests */ = {
 			isa = PBXGroup;
 			children = (
-				F05D34292650266C00020B02 /* TransformersWarsTests.swift */,
 				F05D342B2650266C00020B02 /* Info.plist */,
 				F0B048892655B202002F7239 /* TransformersBattleModelTests.swift */,
 			);
@@ -623,7 +620,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F05D342A2650266C00020B02 /* TransformersWarsTests.swift in Sources */,
 				F0B0488A2655B202002F7239 /* TransformersBattleModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

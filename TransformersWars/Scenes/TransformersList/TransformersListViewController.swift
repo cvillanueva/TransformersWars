@@ -26,6 +26,13 @@ class TransformersListViewController: UIViewController {
     var viewModel: TransformersListViewModel
     let disposeBag = DisposeBag()
     var color = AppConstants.Color.getRandomColor()
+    var fetchingData = false
+
+    let loadingAlert: UIAlertController = UIAlertController(
+        title: nil,
+        message: AppConstants.TransformersListViewController.fetchingAlertMessage,
+        preferredStyle: .alert
+    )
 
     init(
         viewModel: TransformersListViewModel = TransformersListViewModel()
@@ -46,12 +53,15 @@ class TransformersListViewController: UIViewController {
         self.setupTableView()
         self.setupBinding()
 
+        self.fetchingData = true
+        self.present(loadingAlert, animated: true)
         self.viewModel.checkApiToken()
 //        self.viewModel.fillTableWithMockData()
     }
 
     // MARK: - UI
 
+    /// Sets the controller UI
     func setupUI() {
         self.title = AppConstants.TransformersListViewController.title
 
@@ -78,52 +88,72 @@ class TransformersListViewController: UIViewController {
         self.navigationItem.backBarButtonItem = backItem
     }
 
+    /// Shows an error when a error getting the API token happened
+    /// - Parameter message: An error message
     func showApiTokenRequestErrorAlert(message: String) {
         print("[TransformersListViewController] showApiTokenRequestErrorAlert()")
-        let refreshAlert = UIAlertController(
-            title: AppConstants.TransformersListViewController.apiTokenFailedDialogTitle,
-            message: message,
-            preferredStyle: UIAlertController.Style.alert
-        )
+        self.loadingAlert.dismiss(animated: false, completion: {
+            self.fetchingData = false
 
-        refreshAlert.addAction(
-            UIAlertAction(
-                title: AppConstants.buttonOk,
-                style: .default,
-                handler: { (_: UIAlertAction!) in
-                    self.viewModel.getAPiToken()
-                }
+            let refreshAlert = UIAlertController(
+                title: AppConstants.TransformersListViewController.apiTokenFailedDialogTitle,
+                message: message,
+                preferredStyle: UIAlertController.Style.alert
             )
-        )
 
-        present(refreshAlert, animated: true, completion: nil)
+            refreshAlert.addAction(
+                UIAlertAction(
+                    title: AppConstants.buttonOk,
+                    style: .default,
+                    handler: { (_: UIAlertAction!) in
+                        self.fetchingData = true
+                        self.present(self.loadingAlert, animated: true)
+                        self.viewModel.getAPiToken()
+                    }
+                )
+            )
+
+            self.present(refreshAlert, animated: true, completion: nil)
+        })
     }
 
+    /// Shows an error when a error getting the list of transformers happened
+    /// - Parameter message: An error message
     func showTransformersListRequestErrorAlert(message: String) {
         print("[TransformersListViewController] showTransformersListRequestErrorAlert()")
-        let refreshAlert = UIAlertController(
-            title: AppConstants.TransformersListViewController.apiTokenFailedDialogTitle,
-            message: message,
-            preferredStyle: UIAlertController.Style.alert
-        )
+        self.loadingAlert.dismiss(animated: false, completion: {
+            self.fetchingData = false
 
-        refreshAlert.addAction(
-            UIAlertAction(
-                title: AppConstants.buttonOk,
-                style: .default,
-                handler: { (_: UIAlertAction!) in
-                    self.viewModel.getTransformersList()
-                }
+            let refreshAlert = UIAlertController(
+                title: AppConstants.TransformersListViewController.apiTokenFailedDialogTitle,
+                message: message,
+                preferredStyle: UIAlertController.Style.alert
             )
-        )
 
-        present(refreshAlert, animated: true, completion: nil)
+            refreshAlert.addAction(
+                UIAlertAction(
+                    title: AppConstants.buttonOk,
+                    style: .default,
+                    handler: { (_: UIAlertAction!) in
+                        self.fetchingData = true
+                        self.present(self.loadingAlert, animated: true)
+                        self.viewModel.getTransformersList()
+                    }
+                )
+            )
+
+            self.present(refreshAlert, animated: true, completion: nil)
+        })
     }
 
+    /// Triggered when the add button is tapped
+    /// - Parameter sender: The sender
     @IBAction func addButtonTapped(_ sender: Any) {
         self.pushTransformerEditor(operation: .create)
     }
 
+    /// Triggered when the fight button is tapped
+    /// - Parameter sender: The sender
     @IBAction func fightButtonTapped(_ sender: Any) {
         let transformersBattleViewController = TransformersBattleViewController(
             transformersList: self.viewModel.transformersList
@@ -131,6 +161,10 @@ class TransformersListViewController: UIViewController {
         self.navigationController?.pushViewController(transformersBattleViewController, animated: true)
     }
 
+    /// Pushes edition screen
+    /// - Parameters:
+    ///   - operation: The operation to perform: creation or update
+    ///   - model: A transformer object
     func pushTransformerEditor(
         operation: TransformerEditorOperation,
         model: Transformer? = AppConstants.emptyTransformer
@@ -189,6 +223,8 @@ extension TransformersListViewController {
         self.viewModel.output.gotRequestError
             .drive(
                 onNext: { [weak self] errorType in
+                    self?.fetchingData = false
+
                     switch errorType {
                     case .apiTokenNetworkIsNotReachable:
                         self?.showApiTokenRequestErrorAlert(message: errorType.rawValue)
@@ -205,13 +241,15 @@ extension TransformersListViewController {
             ).disposed(by: disposeBag)
     }
 
+    /// Returns cells depending on the logic executed in the view model
+    /// - Returns: A section model
     func dataSource() -> RxTableViewSectionedReloadDataSource<TransformersListSectionModel> {
         let dataSource = RxTableViewSectionedReloadDataSource<TransformersListSectionModel>(
             configureCell: { dataSource, tableView, indexPath, _ -> UITableViewCell in
                 switch dataSource[indexPath] {
                 case .autobotItem(model: let model):
-//                    self.loadingAlert.dismiss(animated: true)
-//                    self.fetchingData = false
+                    self.loadingAlert.dismiss(animated: true)
+                    self.fetchingData = false
 
                     let cell: AutobotTableViewCell = tableView.dequeueReusableCell(
                         withIdentifier: AppConstants.TransformersListViewController.autobotCellName,
@@ -222,8 +260,8 @@ extension TransformersListViewController {
 
                     return cell
                 case .decepticonItem(model: let model):
-//                    self.loadingAlert.dismiss(animated: true)
-//                    self.fetchingData = false
+                    self.loadingAlert.dismiss(animated: true)
+                    self.fetchingData = false
 
                     let cell: DecepticonTableViewCell = tableView.dequeueReusableCell(
                         withIdentifier: AppConstants.TransformersListViewController.decepticonCellName,
@@ -240,7 +278,14 @@ extension TransformersListViewController {
     }
 }
 
+/// Extension to implements the UITableViewDelegate protocol
 extension TransformersListViewController: UITableViewDelegate {
+
+    /// To define the height of shown cells
+    /// - Parameters:
+    ///   - tableView: The controller's tableview
+    ///   - indexPath: Returned indexPath
+    /// - Returns: The cell height
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return AppConstants.TransformersListViewController.transformerCellHeight
     }

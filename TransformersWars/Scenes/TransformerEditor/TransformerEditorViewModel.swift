@@ -52,6 +52,8 @@ class TransformerEditorViewModel {
         )
     }
 
+    // MARK: - Binding
+
     func nameTextFieldChanged(value: String) {
         self.transformerModel.name = value
     }
@@ -128,6 +130,8 @@ extension TransformerEditorViewModel: RequestTransformerCreationProtocol {
 
     // MARK: - RequestTransformerCreationProtocol implementation
 
+    /// Requests the creation of a transformer
+    /// - Parameter model: A transformer model object
     func requestTransformerCreation(model: Transformer) {
         _ = RequestTransformerCreation(
             delegate: self,
@@ -136,11 +140,14 @@ extension TransformerEditorViewModel: RequestTransformerCreationProtocol {
         )
     }
 
+    /// Triggered when the call success
     func serverCreatedTransformer() {
         print("[TransformerEditorViewModel] serverCreatedTransformer()")
         self._gotRequestSuccess.onNext(true)
     }
 
+    /// Triggered when the call failes
+    /// - Parameter errorType: The error type
     func serverErrorHappened(errorType: AppConstants.ApiRequestEditionError) {
         print("[TransformerEditorViewModel] serverErrorHappened()")
         self._gotRequestError.onNext(errorType)
@@ -151,6 +158,8 @@ extension TransformerEditorViewModel: RequestTransformerUpdateProtocol {
 
     // MARK: - RequestTransformerUpdateProtocol implementation
 
+    /// Requests the update of a transformer
+    /// - Parameter model: A transformer model object
     func requestTransformerUpdate(model: Transformer) {
         _ = RequestTransformerUpdate(
             delegate: self,
@@ -159,6 +168,7 @@ extension TransformerEditorViewModel: RequestTransformerUpdateProtocol {
         )
     }
 
+    /// Triggered when the call success
     func serveUpdatedTransformer() {
         self._gotRequestSuccess.onNext(true)
     }
@@ -168,6 +178,8 @@ extension TransformerEditorViewModel: RequestTransformerDeleteProtocol {
 
     // MARK: - RequestTransformerUpdateProtocol implementation
 
+    /// Requests the delete of a transformer
+    /// - Parameter model: A transformer model object
     func requestTransformerDelete(model: Transformer) {
         _ = RequestTransformerDelete(
             delegate: self,
@@ -176,6 +188,7 @@ extension TransformerEditorViewModel: RequestTransformerDeleteProtocol {
         )
     }
 
+    /// Triggered when the call success
     func serveDeletedTransformer() {
         self._gotRequestSuccess.onNext(true)
     }

@@ -23,6 +23,8 @@ class AutobotBattleSkippedTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
+    /// Setup the cell with the given data
+    /// - Parameter model: A battle model object
     func setup(model: BattleModel) {
         self.autobotNameLabel.text = "\(model.autobotName) survives"
         if model.oddCell {

@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// Some extension to handle a custom font
 extension UIFont {
     static func optimus(size: CGFloat) -> UIFont {
         return UIFont(name: AppConstants.Fonts.optimus, size: size) ?? UIFont.systemFont(ofSize: 24)
