@@ -72,6 +72,11 @@ extension TransformersBattleViewController {
             UINib(nibName: AppConstants.TransformersBattleViewController.decepticonBattleSkippedCellName, bundle: nil),
             forCellReuseIdentifier: AppConstants.TransformersBattleViewController.decepticonBattleSkippedCellName
         )
+
+        battleTableView.register(
+            UINib(nibName: AppConstants.TransformersBattleViewController.generalResultTableViewCellName, bundle: nil),
+            forCellReuseIdentifier: AppConstants.TransformersBattleViewController.generalResultTableViewCellName
+        )
     }
 
     /// To listen changes in the viewmodel
@@ -111,6 +116,15 @@ extension TransformersBattleViewController {
 
                     cell.setup(model: model)
                     return cell
+
+                case .generalResult(model: let model):
+                    let cell: GeneralResultTableViewCell = tableView.dequeueReusableCell(
+                        withIdentifier: AppConstants.TransformersBattleViewController.generalResultTableViewCellName,
+                        for: indexPath
+                    ) as! GeneralResultTableViewCell
+
+                    cell.setup(model: model)
+                    return cell
                 }
             }
         )
@@ -131,6 +145,8 @@ extension TransformersBattleViewController: UITableViewDelegate {
             return AppConstants.TransformersBattleViewController.battleCellHeight
         case .autobotSkippedBattleItem, .decepticonSkippedBattleItem:
             return AppConstants.TransformersBattleViewController.autobotBattleSkippedCellHeight
+        case .generalResult:
+            return AppConstants.TransformersBattleViewController.generalResultTableViewCellHeight
         }
     }
 }

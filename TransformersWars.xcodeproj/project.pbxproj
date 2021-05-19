@@ -38,6 +38,10 @@
 		F0B0487D265550B6002F7239 /* AutobotBattleSkippedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0B0487B265550B6002F7239 /* AutobotBattleSkippedTableViewCell.xib */; };
 		F0B048802655539D002F7239 /* DecepticonBattleSkippedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B0487E2655539D002F7239 /* DecepticonBattleSkippedTableViewCell.swift */; };
 		F0B048812655539D002F7239 /* DecepticonBattleSkippedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0B0487F2655539D002F7239 /* DecepticonBattleSkippedTableViewCell.xib */; };
+		F0B0488426556DBB002F7239 /* GeneralResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B0488226556DBB002F7239 /* GeneralResultTableViewCell.swift */; };
+		F0B0488526556DBB002F7239 /* GeneralResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0B0488326556DBB002F7239 /* GeneralResultTableViewCell.xib */; };
+		F0B048882655A878002F7239 /* TransformersBattleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B048872655A878002F7239 /* TransformersBattleModel.swift */; };
+		F0B0488A2655B202002F7239 /* TransformersBattleModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B048892655B202002F7239 /* TransformersBattleModelTests.swift */; };
 		F0C0AB4726544DA5000B57BC /* TransformersBattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C0AB4526544DA5000B57BC /* TransformersBattleViewController.swift */; };
 		F0C0AB4826544DA5000B57BC /* TransformersBattleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0C0AB4626544DA5000B57BC /* TransformersBattleViewController.xib */; };
 		F0C0AB4A26544DC5000B57BC /* TransformersBattleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C0AB4926544DC5000B57BC /* TransformersBattleViewModel.swift */; };
@@ -107,6 +111,10 @@
 		F0B0487B265550B6002F7239 /* AutobotBattleSkippedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AutobotBattleSkippedTableViewCell.xib; sourceTree = "<group>"; };
 		F0B0487E2655539D002F7239 /* DecepticonBattleSkippedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecepticonBattleSkippedTableViewCell.swift; sourceTree = "<group>"; };
 		F0B0487F2655539D002F7239 /* DecepticonBattleSkippedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DecepticonBattleSkippedTableViewCell.xib; sourceTree = "<group>"; };
+		F0B0488226556DBB002F7239 /* GeneralResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResultTableViewCell.swift; sourceTree = "<group>"; };
+		F0B0488326556DBB002F7239 /* GeneralResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GeneralResultTableViewCell.xib; sourceTree = "<group>"; };
+		F0B048872655A878002F7239 /* TransformersBattleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformersBattleModel.swift; sourceTree = "<group>"; };
+		F0B048892655B202002F7239 /* TransformersBattleModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformersBattleModelTests.swift; sourceTree = "<group>"; };
 		F0C0AB4526544DA5000B57BC /* TransformersBattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformersBattleViewController.swift; sourceTree = "<group>"; };
 		F0C0AB4626544DA5000B57BC /* TransformersBattleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransformersBattleViewController.xib; sourceTree = "<group>"; };
 		F0C0AB4926544DC5000B57BC /* TransformersBattleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformersBattleViewModel.swift; sourceTree = "<group>"; };
@@ -199,6 +207,7 @@
 		F05D34112650266B00020B02 /* TransformersWars */ = {
 			isa = PBXGroup;
 			children = (
+				F0B048862655A76F002F7239 /* BusinessLogic */,
 				F05D344F2650372A00020B02 /* Assets */,
 				F05D34432650296400020B02 /* Scenes */,
 				F05D346026507E1100020B02 /* Networking */,
@@ -217,6 +226,7 @@
 			children = (
 				F05D34292650266C00020B02 /* TransformersWarsTests.swift */,
 				F05D342B2650266C00020B02 /* Info.plist */,
+				F0B048892655B202002F7239 /* TransformersBattleModelTests.swift */,
 			);
 			path = TransformersWarsTests;
 			sourceTree = "<group>";
@@ -303,6 +313,14 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		F0B048862655A76F002F7239 /* BusinessLogic */ = {
+			isa = PBXGroup;
+			children = (
+				F0B048872655A878002F7239 /* TransformersBattleModel.swift */,
+			);
+			path = BusinessLogic;
+			sourceTree = "<group>";
+		};
 		F0C0AB4426544D39000B57BC /* TransformersBattle */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +341,8 @@
 				F0B0487B265550B6002F7239 /* AutobotBattleSkippedTableViewCell.xib */,
 				F0B0487E2655539D002F7239 /* DecepticonBattleSkippedTableViewCell.swift */,
 				F0B0487F2655539D002F7239 /* DecepticonBattleSkippedTableViewCell.xib */,
+				F0B0488226556DBB002F7239 /* GeneralResultTableViewCell.swift */,
+				F0B0488326556DBB002F7239 /* GeneralResultTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -446,6 +466,7 @@
 				F05D341C2650266C00020B02 /* Assets.xcassets in Resources */,
 				F02175B4265168320067F966 /* DecepticonTableViewCell.xib in Resources */,
 				F0B048812655539D002F7239 /* DecepticonBattleSkippedTableViewCell.xib in Resources */,
+				F0B0488526556DBB002F7239 /* GeneralResultTableViewCell.xib in Resources */,
 				F05D345F26506CF500020B02 /* AutobotTableViewCell.xib in Resources */,
 				F05D34562650378500020B02 /* Optimus.otf in Resources */,
 			);
@@ -590,8 +611,10 @@
 				F05D345E26506CF500020B02 /* AutobotTableViewCell.swift in Sources */,
 				F02175B62651A9220067F966 /* RequestApiToken.swift in Sources */,
 				F0C0AB4726544DA5000B57BC /* TransformersBattleViewController.swift in Sources */,
+				F0B048882655A878002F7239 /* TransformersBattleModel.swift in Sources */,
 				F0C10EE42653478F00831A6B /* RequestTransformerDelete.swift in Sources */,
 				F05D344A26502B8500020B02 /* AppConstants.swift in Sources */,
+				F0B0488426556DBB002F7239 /* GeneralResultTableViewCell.swift in Sources */,
 				F02175B3265168320067F966 /* DecepticonTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -601,6 +624,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F05D342A2650266C00020B02 /* TransformersWarsTests.swift in Sources */,
+				F0B0488A2655B202002F7239 /* TransformersBattleModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

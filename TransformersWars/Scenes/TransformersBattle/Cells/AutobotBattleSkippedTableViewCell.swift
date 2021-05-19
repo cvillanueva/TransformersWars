@@ -25,7 +25,6 @@ class AutobotBattleSkippedTableViewCell: UITableViewCell {
 
     func setup(model: BattleModel) {
         self.autobotNameLabel.text = "\(model.autobotName) survives"
-        
         if model.oddCell {
             self.contentView.backgroundColor = .lightGray.withAlphaComponent(0.2)
         }

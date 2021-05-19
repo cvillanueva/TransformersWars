@@ -53,6 +53,50 @@ class AppConstants {
         )
     }
 
+    static let emptyTransformer = Transformer(
+        identifier: noID,
+        name: empty,
+        strength: 1,
+        intelligence: 1,
+        speed: 1,
+        endurance: 1,
+        rank: 1,
+        courage: 1,
+        firepower: 1,
+        skill: 1,
+        team: BusinessLogic.autobotTeam,
+        teamIcon: empty,
+        oddCell: false
+    )
+
+    static let emptyGeneralResult = GeneralResultModel(
+        numberOfBattles: 0,
+        autobotsVictories: 0,
+        autobotsDefeats: 0,
+        autobotsTies: 0,
+        autobotsSurvivors: 0,
+        decepticonsVictories: 0,
+        decepticonsDefeats: 0,
+        decepticonsTies: 0,
+        decepticonsSurvivors: 0,
+        winningTeam: .tie,
+        oddCell: false
+    )
+
+    static let allDestroyedGeneralResult = GeneralResultModel(
+        numberOfBattles: 0,
+        autobotsVictories: 0,
+        autobotsDefeats: 0,
+        autobotsTies: 0,
+        autobotsSurvivors: 0,
+        decepticonsVictories: 0,
+        decepticonsDefeats: 0,
+        decepticonsTies: 0,
+        decepticonsSurvivors: 0,
+        winningTeam: .allDestroyed,
+        oddCell: false
+    )
+
     // MARK: - Networking
 
     struct Networking {
@@ -106,6 +150,9 @@ class AppConstants {
         static let autobotBattleSkippedCellHeight: CGFloat = 60
         static let decepticonBattleSkippedCellName = "DecepticonBattleSkippedTableViewCell"
         static let decepticonBattleSkippedCellHeight: CGFloat = 60
+        static let generalResultTableViewCellName = "GeneralResultTableViewCell"
+        static let generalResultTableViewCellHeight: CGFloat = 170
+        static let allDestroyed = "All destroyed"
     }
 
     struct Fonts {
@@ -143,6 +190,13 @@ class AppConstants {
             alpha: 1.0
         )
 
+        static let alldestroyedBlue = UIColor(
+            red: 50.0/255.0,
+            green: 120.0/255.0,
+            blue: 200.0/255.0,
+            alpha: 1.0
+        )
+
         static func getRandomColor() -> UIColor {
             let number = Int.random(in: 0...1)
             if number == 0 {
@@ -152,22 +206,6 @@ class AppConstants {
             }
         }
     }
-
-    static let emptyTransformer = Transformer(
-        identifier: noID,
-        name: empty,
-        strength: 1,
-        intelligence: 1,
-        speed: 1,
-        endurance: 1,
-        rank: 1,
-        courage: 1,
-        firepower: 1,
-        skill: 1,
-        team: BusinessLogic.autobotTeam,
-        teamIcon: empty,
-        oddCell: false
-    )
 
     static let noID = "no_id"
     static let empty = ""
